@@ -69,7 +69,7 @@ function renderHeader(activeService) {
     <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Cerrar menú">✕</button>
       <div class="mobile-nav-logo"><img src="img/logo-negro.png" alt="Padilla Peritaciones" style="height:52px;width:auto" /></div>
-      <a href="index.html" onclick="closeMobileNav()">🏠 Inicio</a>
+      <a href="index.html" onclick="closeMobileNav()">Inicio</a>
       ${mobileLinks}
     </nav>
     <header id="header" role="banner">
