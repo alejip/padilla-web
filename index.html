@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Padilla Peritaciones | Perito de Coches en Alicante</title>
+  <meta name="description" content="Perito de coches en Alicante. Especialista en siniestro total, vicios ocultos, reparaciones mal realizadas y peritaciones previas a la compra. José Ángel Padilla - Perito acreditado APCAS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #226D94;
+      --primary-dark: #1a5878;
+      --primary-light: #2f82b0;
+      --primary-xlight: #e8f4f9;
+      --bg: #ffffff;
+      --bg-alt: #f4f8fb;
+      --bg-dark: #0d1e2e;
+      --text: #0f1e2e;
+      --text-muted: #5c7080;
+      --text-light: #8fa0b0;
+      --border: #dce8f0;
+      --border-light: #eef4f8;
+      --accent2: #f0a500;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 2px 12px rgba(34,109,148,0.08);
+      --shadow: 0 6px 30px rgba(34,109,148,0.12);
+      --shadow-lg: 0 16px 60px rgba(34,109,148,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary-xlight); border: 1px solid rgba(34,109,148,0.25);
+      color: var(--primary); padding: 6px 14px; border-radius: 50px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 50px; font-weight: 700;
+      font-size: 16px; cursor: pointer; border: none; text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn-primary {
+      background: var(--primary);
+      color: white; box-shadow: 0 8px 30px rgba(34,109,148,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(34,109,148,0.4); background: var(--primary-dark); }
+    .btn-secondary {
+      background: white; color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover { background: var(--primary-xlight); transform: translateY(-2px); }
+    .btn-accent {
+      background: #f0a500;
+      color: #0f1e2e; box-shadow: 0 8px 30px rgba(240,165,0,0.3);
+    }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(240,165,0,0.4); }
+    .btn-lg { padding: 20px 42px; font-size: 18px; }
+    .btn-sm { padding: 10px 20px; font-size: 14px; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0;
+      transition: padding 0.4s ease;
+    }
+    #header.scrolled { padding: 10px 0; }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: rgba(255,255,255,0.13);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 60px;
+      padding: 8px 8px 8px 22px;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #header.scrolled .header-inner {
+      background: rgba(255,255,255,0.90);
+      border-color: rgba(34,109,148,0.15);
+      box-shadow: 0 4px 28px rgba(34,109,148,0.13);
+      padding: 6px 6px 6px 20px;
+    }
+
+    .logo img { height: 48px; filter: brightness(0) invert(1); transition: height 0.3s, filter 0.4s; }
+    #header.scrolled .logo img { height: 42px; filter: none; }
+
+    nav { display: flex; align-items: center; gap: 2px; }
+    nav a {
+      color: rgba(255,255,255,0.88); text-decoration: none; padding: 8px 13px;
+      border-radius: 50px; font-size: 14px; font-weight: 500; transition: all 0.2s;
+    }
+    nav a:hover { color: white; background: rgba(255,255,255,0.15); }
+    #header.scrolled nav a { color: var(--text-muted); }
+    #header.scrolled nav a:hover { color: var(--primary); background: var(--primary-xlight); }
+
+    .header-cta { display: flex; align-items: center; gap: 8px; }
+    .phone-chip {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+      padding: 8px 15px; border-radius: 50px; color: white;
+      text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;
+    }
+    .phone-chip:hover { background: rgba(255,255,255,0.28); }
+    .phone-chip svg { color: white; }
+    #header.scrolled .phone-chip { background: var(--primary-xlight); border-color: rgba(34,109,148,0.3); color: var(--primary); }
+    #header.scrolled .phone-chip svg { color: var(--primary); }
+    #header.scrolled .phone-chip:hover { background: #d4ecf5; }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px 10px; border-radius: 50px; transition: background 0.2s; }
+    .hamburger:hover { background: rgba(255,255,255,0.15); }
+    #header.scrolled .hamburger:hover { background: var(--primary-xlight); }
+    .hamburger span { display: block; width: 20px; height: 2px; background: white; margin: 4px 0; transition: all 0.3s; border-radius: 2px; }
+    #header.scrolled .hamburger span { background: var(--text); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 120px 0 80px;
+      background: linear-gradient(135deg, #0a1a28 0%, #0d2035 40%, #142840 70%, #1a5878 100%);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.22;
+    }
+    .glow-1 { width: 600px; height: 600px; background: #226D94; top: -100px; right: -100px; animation: float1 8s ease-in-out infinite; }
+    .glow-2 { width: 400px; height: 400px; background: #2f82b0; bottom: -50px; left: 20%; animation: float2 10s ease-in-out infinite; }
+    .glow-3 { width: 300px; height: 300px; background: #226D94; top: 40%; left: -100px; animation: float3 7s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,40px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,-30px)} }
+    @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,20px)} }
+
+    .grid-lines {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(34,109,148,0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,109,148,0.10) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .hero-content { }
+    .hero-badge { margin-bottom: 24px; }
+    /* Hero badge on dark bg uses white style */
+    .hero-badge .badge {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+    }
+    .hero-badge .badge::before { background: white; }
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(40px, 5vw, 68px); font-weight: 900; line-height: 1.05;
+      margin-bottom: 24px; letter-spacing: -0.02em; color: white;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #7ecef4, #a8dff7, #7ecef4);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 3s linear infinite;
+    }
+    @keyframes shine { to { background-position: 200% center; } }
+    .hero-subtitle { font-size: 18px; color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 36px; max-width: 500px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    /* Hero secondary btn on dark bg */
+    .hero-actions .btn-secondary {
+      background: rgba(255,255,255,0.12); color: white;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .hero-actions .btn-secondary:hover { background: rgba(255,255,255,0.22); }
+    .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.65); }
+    .trust-item svg { color: white; flex-shrink: 0; }
+
+    .hero-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .hero-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+    .form-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+    .form-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px; }
+    .form-control {
+      width: 100%; padding: 13px 16px; background: var(--bg-alt);
+      border: 1px solid var(--border); border-radius: 10px; color: var(--text);
+      font-size: 15px; font-family: inherit; transition: all 0.2s; outline: none;
+    }
+    .form-control::placeholder { color: var(--text-light); }
+    .form-control:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(34,109,148,0.12); }
+    select.form-control { cursor: pointer; }
+    select.form-control option { background: white; color: var(--text); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .privacy-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; text-align: center; }
+
+    /* ─── STATS ─── */
+    #stats {
+      padding: 60px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+    .stat-item {}
+    .stat-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 48px; font-weight: 900; line-height: 1;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+
+    /* ─── SERVICES ─── */
+    #servicios { padding: 100px 0; background: var(--bg); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-badge { margin-bottom: 16px; }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(32px, 4vw, 48px); font-weight: 800; margin-bottom: 16px;
+      letter-spacing: -0.02em; line-height: 1.15; color: var(--text);
+    }
+    .section-subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.7; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: white;
+      border: 1.5px solid var(--border); border-radius: var(--radius-lg);
+      padding: 36px 30px; position: relative; overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1); cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none; color: inherit; display: block;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(34,109,148,0.04), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(34,109,148,0.25); box-shadow: var(--shadow); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 60px; height: 60px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; font-size: 26px;
+      box-shadow: 0 8px 24px rgba(34,109,148,0.2);
+      transition: transform 0.3s;
+    }
+    .service-card:hover .service-icon { transform: scale(1.1) rotate(-5deg); }
+    .service-name { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .service-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .service-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--primary); font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 10px; }
+
+    /* ─── HOW IT WORKS ─── */
+    #como-funciona { padding: 100px 0; background: var(--bg-alt); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; position: relative; }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 36px; left: 16.5%; right: 16.5%;
+      height: 2px; background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      z-index: 0;
+    }
+    .step-card { text-align: center; position: relative; z-index: 1; }
+    .step-number {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px; font-weight: 900; color: white;
+      box-shadow: 0 0 0 8px rgba(34,109,148,0.10), 0 8px 30px rgba(34,109,148,0.22);
+    }
+    .step-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .step-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ─── ABOUT ─── */
+    #sobre-mi { padding: 100px 0; background: var(--bg); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-card {
+      background: white;
+      border: 1.5px solid var(--border); border-radius: var(--radius-lg);
+      padding: 48px 40px; position: relative; overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .about-img-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+    .about-name { font-size: 28px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+    .about-role { color: var(--primary); font-size: 15px; font-weight: 600; margin-bottom: 24px; }
+    .credentials { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .credential-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--bg-alt); border-radius: 10px; padding: 12px 14px;
+    }
+    .credential-icon { font-size: 20px; flex-shrink: 0; }
+    .credential-text { font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+    .credential-text strong { color: var(--text); display: block; }
+    .about-quote {
+      background: var(--primary-xlight); border-left: 3px solid var(--primary);
+      border-radius: 0 12px 12px 0; padding: 16px 20px;
+      font-size: 15px; color: var(--text-muted); line-height: 1.7; font-style: italic;
+    }
+    .about-content .section-title { text-align: left; }
+    .about-content .section-subtitle { text-align: left; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+    .feature-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500; color: var(--text);
+    }
+    .feature-item svg { color: var(--primary); flex-shrink: 0; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonios { padding: 100px 0; background: var(--bg-alt); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: white;
+      border: 1.5px solid var(--border); border-radius: var(--radius-lg);
+      padding: 32px 28px; transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); border-color: rgba(34,109,148,0.25); box-shadow: var(--shadow); }
+    .stars { color: #f0a500; font-size: 18px; margin-bottom: 16px; }
+    .testimonial-text { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: white; flex-shrink: 0;
+    }
+    .author-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .author-detail { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── LEAD FORM SECTION ─── */
+    #presupuesto { padding: 100px 0; position: relative; overflow: hidden; background: var(--bg-alt); }
+    .presupuesto-bg {
+      position: absolute; inset: 0;
+      background: transparent;
+    }
+    .presupuesto-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .presupuesto-left .section-title { text-align: left; font-size: clamp(30px, 3.5vw, 44px); }
+    .presupuesto-left .section-subtitle { text-align: left; }
+    .benefits-list { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; }
+    .benefit-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 14px;
+    }
+    .benefit-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+    .benefit-text strong { color: var(--text); display: block; font-size: 14px; margin-bottom: 2px; }
+
+    .presupuesto-form {
+      background: white;
+      border: 1.5px solid var(--border); border-radius: var(--radius-lg);
+      padding: 40px 36px; position: relative; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .presupuesto-form::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--primary));
+      background-size: 200% auto; animation: shine 3s linear infinite;
+    }
+    textarea.form-control { resize: none; min-height: 100px; }
+
+    /* ─── FAQ ─── */
+    #faq { padding: 100px 0; background: var(--bg); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
+    .faq-item {
+      background: white; border: 1.5px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item:hover { border-color: rgba(34,109,148,0.25); box-shadow: var(--shadow); }
+    .faq-question {
+      padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-weight: 600; font-size: 15px; gap: 16px;
+      user-select: none; color: var(--text);
+    }
+    .faq-toggle {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--primary-xlight);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: var(--primary); font-size: 18px; transition: transform 0.3s, background 0.3s;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--primary); color: white; }
+    .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+
+    /* ─── CONTACT STRIP ─── */
+    #contacto-strip {
+      padding: 80px 0;
+      background: var(--primary);
+      position: relative; overflow: hidden;
+    }
+    .strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .strip-text h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 3vw, 38px); font-weight: 800; margin-bottom: 8px; color: white;
+    }
+    .strip-text p { font-size: 17px; opacity: 0.88; color: white; }
+    .strip-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    #footer { background: #0d1e2e; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .footer-logo { margin-bottom: 16px; }
+    .footer-brand .footer-logo img { height: 38px; filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-desc { font-size: 14px; color: #8fa0b0; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      color: #8fa0b0; text-decoration: none; font-size: 16px; transition: all 0.2s;
+    }
+    .social-btn:hover { background: rgba(34,109,148,0.4); border-color: var(--primary); color: white; }
+    .footer-col h4 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: #8fa0b0; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #8fa0b0; line-height: 1.5; }
+    .contact-item svg { color: #7ecef4; flex-shrink: 0; margin-top: 2px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 13px; color: #8fa0b0; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: #8fa0b0; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    /* ─── FLOATING WHATSAPP ─── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.4); text-decoration: none;
+      transition: all 0.3s; animation: waFloat 4s ease-in-out infinite;
+    }
+    .wa-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+    @keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* ─── SCROLL TO TOP ─── */
+    .scroll-top {
+      position: fixed; bottom: 28px; left: 28px; z-index: 999;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: white; border: 2px solid var(--primary);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      color: var(--primary); font-size: 18px;
+      transition: all 0.3s; opacity: 0; pointer-events: none;
+      box-shadow: var(--shadow-sm);
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--primary); color: white; box-shadow: var(--shadow); }
+
+    /* ─── NAV DROPDOWN ─── */
+    .nav-parent {
+      display: flex; align-items: center; cursor: pointer;
+    }
+    .nav-submenu {
+      display: none; position: absolute; top: calc(100% + 12px); left: -12px;
+      background: white;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 8px; min-width: 260px; list-style: none;
+      box-shadow: var(--shadow-lg);
+      z-index: 100;
+    }
+    .nav-submenu::before {
+      content: ''; position: absolute; top: -6px; left: 24px;
+      width: 12px; height: 12px; background: white;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+      transform: rotate(45deg);
+    }
+    .nav-submenu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 8px; font-size: 14px;
+      color: var(--text) !important;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .nav-submenu a:hover { background: var(--primary-xlight) !important; color: var(--primary) !important; }
+    .nav-dropdown:hover .nav-submenu { display: block; }
+    .nav-dropdown:hover .nav-parent svg { transform: rotate(180deg); }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-nav {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1001;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+      padding: 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text); text-decoration: none; font-size: 18px; font-weight: 700;
+      padding: 14px 32px; border-radius: 50px; width: 100%; max-width: 320px; text-align: center;
+      transition: all 0.2s; border: 1.5px solid transparent;
+    }
+    .mobile-nav a:hover { color: var(--primary); background: var(--primary-xlight); border-color: rgba(34,109,148,0.2); }
+    .mobile-nav-close {
+      position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.06);
+      border: none; cursor: pointer; color: var(--text); font-size: 18px;
+      width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .mobile-nav-close:hover { background: rgba(34,109,148,0.1); color: var(--primary); }
+    .mobile-nav-logo { margin-bottom: 16px; }
+    .mobile-nav-logo img { height: 34px; }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4,0,0.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-card { max-width: 560px; margin: 0 auto; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .presupuesto-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: block; }
+      .header-cta { display: none; }
+      .hero-title { font-size: 36px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .strip-inner { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .about-features { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+  <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Cerrar menú">✕</button>
+  <div class="mobile-nav-logo"><img src="img/logo-negro.png" alt="Padilla Peritaciones" style="height:52px;width:auto" /></div>
+  <a href="siniestro-total.html" onclick="closeMobileNav()">Siniestro Total</a>
+  <a href="antes-de-comprar.html" onclick="closeMobileNav()">Antes de Comprar</a>
+  <a href="reparacion-mal-realizada.html" onclick="closeMobileNav()">Reparación Mal Realizada</a>
+  <a href="averias-mecanicas.html" onclick="closeMobileNav()">Averías Mecánicas</a>
+  <a href="vicios-ocultos.html" onclick="closeMobileNav()">Vicios Ocultos</a>
+  <a href="valoracion-danos.html" onclick="closeMobileNav()">Valoración de Daños</a>
+</nav>
+
+<!-- HEADER -->
+<header id="header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Padilla Peritaciones - Inicio">
+        <img src="img/logo-negro.png" alt="Padilla Peritaciones - Perito de coches en Alicante" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:20px;color:white;">PADILLA <span style="color:#7ecef4">PERITACIONES</span></span>
+      </a>
+      <nav aria-label="Navegación principal" role="navigation">
+        <div class="nav-dropdown" style="position:relative">
+          <a href="#servicios" class="nav-parent" aria-haspopup="true" aria-expanded="false">
+            Servicios
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:4px;transition:transform 0.2s"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="nav-submenu" role="menu" aria-label="Servicios de peritación">
+            <li role="none"><a href="siniestro-total.html" role="menuitem">Siniestro Total</a></li>
+            <li role="none"><a href="antes-de-comprar.html" role="menuitem">Antes de Comprar</a></li>
+            <li role="none"><a href="reparacion-mal-realizada.html" role="menuitem">Reparación Mal Realizada</a></li>
+            <li role="none"><a href="averias-mecanicas.html" role="menuitem">Averías Mecánicas</a></li>
+            <li role="none"><a href="vicios-ocultos.html" role="menuitem">Vicios Ocultos</a></li>
+            <li role="none"><a href="valoracion-danos.html" role="menuitem">Valoración de Daños</a></li>
+          </ul>
+        </div>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#testimonios">Opiniones</a>
+        <a href="#presupuesto">Contacto</a>
+      </nav>
+      <div class="header-cta">
+        <a href="tel:633979981" class="phone-chip" aria-label="Llamar al 633 97 99 81">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          633 97 99 81
+        </a>
+        <a href="#presupuesto" class="btn btn-primary btn-sm" style="display:none" id="headerBtn">Presupuesto gratis</a>
+      </div>
+      <button class="hamburger" onclick="openMobileNav()" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="hero-glow glow-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="badge">Perito acreditado APCAS · Alicante</span>
+        </div>
+        <h1 class="hero-title reveal reveal-delay-1">
+          Tu perito de<br />coches en<br /><span class="highlight">Alicante</span>
+        </h1>
+        <p class="hero-subtitle reveal reveal-delay-2">
+          Defendemos tus derechos frente a aseguradoras y vendedores. Informes periciales con validez judicial para siniestros, compras y reparaciones.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#presupuesto" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Presupuesto gratuito
+          </a>
+          <a href="https://wa.me/34633979981" target="_blank" class="btn btn-secondary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.17.576 4.2 1.581 5.95L0 24l6.27-1.557A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.675-.5-5.22-1.378l-.37-.22-3.722.924.991-3.621-.241-.374A9.957 9.957 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            WhatsApp directo
+          </a>
+        </div>
+        <div class="hero-trust reveal reveal-delay-4">
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Respuesta en menos de 2 horas
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Informe con validez judicial
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Presupuesto sin compromiso
+          </div>
+        </div>
+        <div class="reveal reveal-delay-4" style="margin-top:28px">
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px 18px;width:fit-content">
+            <img src="img/logo-apcas.png" alt="Perito acreditado APCAS" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9" />
+            <span style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500">Perito acreditado · Miembro oficial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal reveal-delay-2">
+        <p class="form-title">¿Necesitas un peritaje?</p>
+        <p class="form-subtitle">Cuéntanos tu caso y te respondemos hoy mismo</p>
+        <form id="heroForm" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono *</label>
+              <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de peritaje</label>
+            <select name="servicio" class="form-control">
+              <option value="">Selecciona el servicio...</option>
+              <option>Siniestro total</option>
+              <option>Antes de comprar un coche</option>
+              <option>Reparación mal realizada</option>
+              <option>Avería mecánica</option>
+              <option>Vicios ocultos</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Describe brevemente tu caso</label>
+            <input type="text" name="mensaje" class="form-control" placeholder="Ej: Tuve un accidente y la aseguradora..." />
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:4px">
+            Solicitar presupuesto gratuito →
+          </button>
+          <p class="privacy-note">🔒 Tus datos están protegidos. Sin compromiso.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="500">0+</div>
+        <div class="stat-label">Peritaciones realizadas</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-target="15">0+</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Clientes satisfechos</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">&lt;2h</div>
+        <div class="stat-label">Tiempo de respuesta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Servicios</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Todo lo que necesitas<br />para protegerte</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Peritaciones profesionales para cada situación. Defensa de tus derechos con informes técnicos de calidad.</p>
+    </div>
+    <div class="services-grid">
+      <a href="siniestro-total.html" class="service-card reveal" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">🚨</div>
+        <h3 class="service-name">Siniestro Total</h3>
+        <p class="service-desc">Tu aseguradora ha declarado siniestro total pero crees que no es justo. Analizamos el informe y defendemos el valor real de tu vehículo.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+      <a href="antes-de-comprar.html" class="service-card reveal reveal-delay-1" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">🔍</div>
+        <h3 class="service-name">Antes de Comprar</h3>
+        <p class="service-desc">Informe completo del estado real del vehículo antes de la compra. Evita sorpresas costosas con un peritaje profesional previo.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+      <a href="reparacion-mal-realizada.html" class="service-card reveal reveal-delay-2" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">🔧</div>
+        <h3 class="service-name">Reparación Mal Realizada</h3>
+        <p class="service-desc">Verificamos si el taller ha realizado correctamente el trabajo. Informe técnico para reclamar daños o exigir la reparación adecuada.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+      <a href="averias-mecanicas.html" class="service-card reveal" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">⚙️</div>
+        <h3 class="service-name">Averías Mecánicas</h3>
+        <p class="service-desc">Diagnóstico exhaustivo del estado mecánico. Conoce la realidad técnica del vehículo con un informe claro y detallado.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+      <a href="vicios-ocultos.html" class="service-card reveal reveal-delay-1" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">⚠️</div>
+        <h3 class="service-name">Vicios Ocultos</h3>
+        <p class="service-desc">Detectamos daños preexistentes no declarados en vehículos de segunda mano. Protégete legalmente con documentación técnica.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+      <a href="valoracion-danos.html" class="service-card reveal reveal-delay-2" style="text-decoration:none;color:inherit;display:block">
+        <div class="service-icon">📋</div>
+        <h3 class="service-name">Valoración de Daños</h3>
+        <p class="service-desc">Evaluación técnica post-accidente para conocer el coste real de los daños. Informe con validez para reclamaciones y procesos judiciales.</p>
+        <span class="service-link">Ver servicio →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Proceso</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Así de fácil funciona</h2>
+      <p class="section-subtitle reveal reveal-delay-2">En 3 pasos sencillos tendrás tu informe pericial profesional listo para usar.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Contacta sin compromiso</h3>
+        <p class="step-desc">Cuéntanos tu caso por teléfono, WhatsApp o formulario. Te responderemos en menos de 2 horas con información y presupuesto.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Realizamos la peritación</h3>
+        <p class="step-desc">José Ángel Padilla inspecciona personalmente el vehículo con metodología técnica rigurosa y documentación fotográfica completa.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-4">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Recibes tu informe</h3>
+        <p class="step-desc">Obtienes un informe pericial detallado con validez judicial. Te asesoramos sobre los pasos a seguir para defender tus derechos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="sobre-mi">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-card">
+          <div style="text-align:center;margin-bottom:28px">
+            <div style="width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px;box-shadow:0 0 0 6px rgba(34,109,148,0.12)">👨‍💼</div>
+            <div class="about-name">José Ángel Padilla</div>
+            <div class="about-role">Perito Acreditado · APCAS</div>
+          </div>
+          <div class="credentials">
+            <div class="credential-item">
+              <div class="credential-icon">🎓</div>
+              <div class="credential-text"><strong>Técnico Superior en Automoción</strong>Formación técnica especializada en mecánica y diagnóstico de vehículos.</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">⚖️</div>
+              <div class="credential-text"><strong>Perito inscrito en listas de Peritos de Seguros</strong>Acreditado para actuar en procedimientos judiciales.</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🏛️</div>
+              <div class="credential-text"><strong>Miembro registrado de APCAS</strong>Asociación de Peritos de Coches y Automóviles de España.</div>
+            </div>
+          </div>
+          <div style="margin-bottom:20px;padding:20px;background:#f4f8fb;border-radius:12px;border:1.5px solid #dce8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center">
+            <img src="img/logo-apcas.png" alt="APCAS - Asociación de Peritos de Seguros y Comisarios de Averías" style="height:44px;width:auto;object-fit:contain" />
+            <p style="font-size:13px;color:#5c7080;line-height:1.5;margin:0">Perito acreditado y miembro activo de <strong style="color:#0f1e2e">APCAS</strong>, la Asociación de Peritos de Seguros y Comisarios de Averías.</p>
+          </div>
+          <div class="about-quote">
+            "Mi objetivo es que siempre tengas la información real para tomar decisiones con total seguridad."
+          </div>
+        </div>
+      </div>
+      <div class="about-content reveal reveal-delay-2">
+        <div class="section-badge" style="margin-bottom:16px"><span class="badge">Sobre el profesional</span></div>
+        <h2 class="section-title" style="text-align:left">Experiencia y rigor<br />a tu servicio</h2>
+        <p class="section-subtitle" style="text-align:left">Con más de 15 años en el sector de la peritación de automóviles, José Ángel Padilla combina conocimiento técnico profundo con experiencia en procedimientos legales y judiciales.</p>
+        <div class="about-features">
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Informes con validez judicial
+          </div>
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Confidencialidad garantizada
+          </div>
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Servicio Drive-in disponible
+          </div>
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Respuesta en &lt; 2 horas
+          </div>
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Perito acreditado APCAS
+          </div>
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Asesoramiento personalizado
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="tel:633979981" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Llamar ahora
+          </a>
+          <a href="#presupuesto" class="btn btn-secondary">Ver servicios y precios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Opiniones</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Lo que dicen nuestros clientes</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Más de 500 peritaciones y clientes que han podido defender sus derechos gracias a nuestros informes.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"La aseguradora me quería pagar muy poco por el siniestro total. Gracias al informe de José Ángel conseguí casi el doble. Totalmente recomendable."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CM</div>
+          <div>
+            <div class="author-name">Carlos M.</div>
+            <div class="author-detail">Siniestro total · Alicante</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Compré un coche de segunda mano y a los 3 meses empezaron los problemas. El informe de vicios ocultos fue clave para ganar la reclamación al vendedor."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">LG</div>
+          <div>
+            <div class="author-name">Laura G.</div>
+            <div class="author-detail">Vicios ocultos · Alicante</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"El taller dejó el coche peor de como estaba. El peritaje de José Ángel fue imprescindible para que el taller se hiciera cargo de los daños. Muy profesional."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MA</div>
+          <div>
+            <div class="author-name">Miguel A.</div>
+            <div class="author-detail">Reparación mal realizada · Elche</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Antes de comprar un vehículo de importación pedí un informe previo. Encontraron daños importantes no declarados. Me ahorré un gran disgusto y mucho dinero."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PR</div>
+          <div>
+            <div class="author-name">Pedro R.</div>
+            <div class="author-detail">Peritaje previo a compra · Alicante</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Respuesta rapidísima y muy buen trato. El informe fue muy completo y me ayudó en todo el proceso judicial. Sin duda volvería a contratarle."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <div class="author-name">Ana S.</div>
+            <div class="author-detail">Avería mecánica · Benidorm</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Profesionalidad total. El informe fue determinante en el juicio. José Ángel explicó todo perfectamente y siempre estuvo disponible para resolver dudas."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RF</div>
+          <div>
+            <div class="author-name">Roberto F.</div>
+            <div class="author-detail">Valoración de daños · Murcia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section id="presupuesto">
+  <div class="presupuesto-bg"></div>
+  <div class="container">
+    <div class="presupuesto-inner">
+      <div class="presupuesto-left reveal">
+        <div class="section-badge" style="margin-bottom:16px"><span class="badge">Presupuesto gratuito</span></div>
+        <h2 class="section-title" style="text-align:left">Solicita tu presupuesto<br />sin compromiso</h2>
+        <p class="section-subtitle" style="text-align:left">Cuéntanos tu caso y te enviaremos un presupuesto personalizado hoy mismo. Sin letra pequeña, sin sorpresas.</p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-text">
+              <strong>Respuesta en menos de 2 horas</strong>
+              Contactamos contigo el mismo día laborable.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📄</div>
+            <div class="benefit-text">
+              <strong>Informes con validez judicial</strong>
+              Documentación técnica admitida en procesos legales.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text">
+              <strong>Totalmente confidencial</strong>
+              Tus datos y el contenido del informe están protegidos.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💶</div>
+            <div class="benefit-text">
+              <strong>Precio justo y transparente</strong>
+              Presupuesto cerrado antes de comenzar. Sin costes ocultos.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap">
+          <a href="tel:633979981" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            633 97 99 81
+          </a>
+          <a href="tel:965247731" class="btn btn-secondary">
+            965 24 77 31
+          </a>
+        </div>
+      </div>
+      <div class="presupuesto-form reveal reveal-delay-2">
+        <h3 style="font-size:22px;font-weight:700;margin-bottom:6px">Envíanos tu consulta</h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px">Te respondemos hoy mismo en horario laboral</p>
+        <form id="mainForm" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" name="nombre" class="form-control" placeholder="Tu nombre completo" required />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" class="form-control" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Tipo de servicio *</label>
+            <select name="servicio" class="form-control" required>
+              <option value="">Selecciona el tipo de peritaje...</option>
+              <option>Siniestro total</option>
+              <option>Peritaje previo a compra</option>
+              <option>Reparación mal realizada</option>
+              <option>Avería mecánica</option>
+              <option>Vicios ocultos</option>
+              <option>Valoración de daños</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Describe tu caso *</label>
+            <textarea name="mensaje" class="form-control" placeholder="Cuéntanos los detalles de tu situación para darte la mejor respuesta posible..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:17px;padding:18px">
+            Enviar consulta gratuita →
+          </button>
+          <p class="privacy-note">🔒 Al enviar aceptas nuestra política de privacidad. No compartimos tus datos.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">FAQ</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Preguntas frecuentes</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Todo lo que necesitas saber sobre nuestros servicios de peritación.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿Cuánto cuesta un peritaje de coche?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">El coste depende del tipo de peritaje y la complejidad del caso. Ofrecemos presupuesto gratuito y sin compromiso antes de comenzar. Contáctanos y te daremos un precio cerrado.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿El informe tiene validez en juicio?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Sí. José Ángel Padilla está inscrito en las listas de Peritos de Seguros y acreditado por APCAS. Sus informes tienen plena validez en procedimientos judiciales y extrajudiciales.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿Cuánto tiempo tarda en realizarse el peritaje?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">La inspección del vehículo suele realizarse en el mismo día o al día siguiente según disponibilidad. El informe se entrega en un plazo de 24-48 horas tras la inspección.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿Atendéis fuera de Alicante?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Principalmente trabajamos en Alicante y provincia, pero también atendemos casos en Murcia y Valencia. Consulta tu caso específico y te confirmamos disponibilidad.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿Puedo solicitar un peritaje si ya ha pasado tiempo del accidente?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Sí, aunque cuanto antes mejor. Incluso en casos donde ha pasado tiempo podemos evaluar el vehículo y determinar el origen de los daños. Consulta tu caso sin compromiso.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          ¿Qué es el servicio Drive-in?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">El servicio Drive-in permite traer tu vehículo directamente a nuestras instalaciones para la inspección. Cómodo, rápido y sin necesidad de desplazamiento del perito.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section id="contacto-strip">
+  <div class="container">
+    <div class="strip-inner">
+      <div class="strip-text">
+        <h2>¿Tienes un problema con tu coche?</h2>
+        <p>Llámanos ahora o escríbenos por WhatsApp. Te respondemos hoy mismo.</p>
+      </div>
+      <div class="strip-actions">
+        <a href="tel:633979981" class="btn btn-accent btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          633 97 99 81
+        </a>
+        <a href="https://wa.me/34633979981" target="_blank" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.15)">
+          WhatsApp →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/logo-negro.png" alt="Padilla Peritaciones" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <span style="display:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:18px;color:white;">PADILLA <span style="color:#7ecef4">PERITACIONES</span></span>
+        </div>
+        <p class="footer-desc">Especialistas en peritación de vehículos en Alicante. Técnico Superior en Automoción y Perito acreditado APCAS con más de 15 años de experiencia.</p>
+        <div style="margin-bottom:20px">
+          <img src="img/logo-apcas.png" alt="Miembro APCAS" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.55" title="Asociación de Peritos de Seguros y Comisarios de Averías" />
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">G</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="siniestro-total.html">Siniestro total</a></li>
+          <li><a href="antes-de-comprar.html">Antes de comprar</a></li>
+          <li><a href="reparacion-mal-realizada.html">Reparación mal realizada</a></li>
+          <li><a href="averias-mecanicas.html">Averías mecánicas</a></li>
+          <li><a href="vicios-ocultos.html">Vicios ocultos</a></li>
+          <li><a href="valoracion-danos.html">Valoración de daños</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul class="footer-links">
+          <li><a href="#sobre-mi">Sobre nosotros</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#testimonios">Opiniones</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#presupuesto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-contact">
+          <div class="contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>633 97 99 81<br />965 24 77 31</span>
+          </div>
+          <div class="contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Calle Aspe, 7<br />03012 Alicante</span>
+          </div>
+          <div class="contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lun–Jue: 9:00–14:00<br />(Horario de verano)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Padilla Peritaciones · José Ángel Padilla · Todos los derechos reservados</p>
+      <div class="footer-legal">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Política de cookies</a>
+        <a href="#">Aviso legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/34633979981" target="_blank" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.17.576 4.2 1.581 5.95L0 24l6.27-1.557A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.675-.5-5.22-1.378l-.37-.22-3.722.924.991-3.621-.241-.374A9.957 9.957 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<!-- SUCCESS MODAL -->
+<div id="modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);align-items:center;justify-content:center">
+  <div style="background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:48px;max-width:440px;width:90%;text-align:center;position:relative;box-shadow:var(--shadow-lg)">
+    <div style="font-size:56px;margin-bottom:16px">✅</div>
+    <h3 style="font-size:24px;font-weight:800;margin-bottom:12px;color:var(--text)">¡Consulta enviada!</h3>
+    <p style="color:var(--text-muted);line-height:1.7;margin-bottom:28px">Hemos recibido tu mensaje. José Ángel se pondrá en contacto contigo en menos de 2 horas en horario laboral.</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a href="tel:633979981" class="btn btn-primary" style="justify-content:center">Llamar ahora: 633 97 99 81</a>
+      <button onclick="closeModal()" class="btn btn-secondary" style="justify-content:center">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('header');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const headerBtn = document.getElementById('headerBtn');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    header.classList.toggle('scrolled', s > 50);
+    scrollTopBtn.classList.toggle('visible', s > 400);
+    headerBtn.style.display = s > 300 ? 'flex' : 'none';
+  });
+
+  // Mobile nav
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
+
+  // Reveal animation
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(r => observer.observe(r));
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Form submit → Formspree
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Enviando...'; btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/xqedlvzw', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('modal').style.display = 'flex';
+        form.reset();
+      } else {
+        alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
+      }
+    } catch {
+      alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
+    }
+    btn.innerHTML = original; btn.disabled = false;
+  }
+  function closeModal() { document.getElementById('modal').style.display = 'none'; }
+  document.getElementById('modal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
+
+  // Counter animation
+  function animateCounter(el, target, suffix) {
+    let current = 0;
+    const increment = target / 60;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = Math.floor(current) + suffix;
+    }, 25);
+  }
+  const statsSection = document.getElementById('stats');
+  let counted = false;
+  const statsObs = new IntersectionObserver((entries) => {
+    if(entries[0].isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+        const t = parseInt(el.dataset.target);
+        animateCounter(el, t, '+');
+      });
+    }
+  }, {threshold: 0.5});
+  statsObs.observe(statsSection);
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+</script>
+</body>
+</html>

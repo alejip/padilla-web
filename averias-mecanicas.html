@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informe de Averías Mecánicas | Padilla Peritaciones Alicante</title>
+  <meta name="description" content="Informe pericial de averías mecánicas en Alicante. Diagnóstico exhaustivo del estado mecánico de tu vehículo con equipos avanzados. Perito acreditado APCAS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="app-header"></div>
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="service-hero-inner">
+      <div class="reveal">
+        <div class="breadcrumb">
+          <a href="index.html">Inicio</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Averías Mecánicas</span>
+        </div>
+        <div style="margin-bottom:18px"><span class="badge">Servicio especializado</span></div>
+        <h1 class="service-hero-title">
+          Informe de<br /><span class="highlight">averías</span><br />mecánicas
+        </h1>
+        <p class="service-hero-sub">Diagnóstico técnico exhaustivo del estado mecánico de tu vehículo. Conoce la realidad de tu coche con un informe detallado elaborado por perito acreditado.</p>
+        <div class="hero-actions">
+          <a href="#formulario" class="btn btn-primary btn-lg">Solicitar diagnóstico</a>
+          <a href="tel:633979981" class="btn btn-secondary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            633 97 99 81
+          </a>
+        </div>
+      </div>
+      <div class="mini-form-card reveal reveal-delay-2">
+        <p class="mini-form-title">¿Problemas mecánicos en tu vehículo?</p>
+        <p class="mini-form-sub">Solicita un diagnóstico profesional y objetivo</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Vehículo y problema</label>
+            <input type="text" class="form-control" placeholder="Ej: Golf TDI 2016, fallo en arranque" />
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:4px">Consultar caso →</button>
+          <p class="privacy-note">🔒 Sin compromiso. Respuesta en &lt;2h en horario laboral.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ ES -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Qué es</span></div>
+        <h2>¿Qué es un informe de averías mecánicas?</h2>
+        <p>El informe de averías mecánicas es un documento técnico que identifica y describe cualquier problema o fallo en los componentes mecánicos de un vehículo. Conocer el estado mecánico de un automóvil es esencial para garantizar su seguridad y fiabilidad.</p>
+        <p>Un informe de averías mecánicas proporciona información detallada sobre cualquier problema que pueda afectar el rendimiento o la seguridad del vehículo. Utilizamos equipos de diagnóstico avanzados para detectar cualquier avería o fallo, y proporcionamos informes detallados que ayudan a los propietarios a tomar decisiones informadas sobre las reparaciones necesarias.</p>
+        <div class="highlight-box">
+          <h3>Diagnóstico objetivo e independiente</h3>
+          <p>A diferencia del diagnóstico que realiza el propio taller que va a cobrar por la reparación, nuestro informe es independiente y objetivo. Solo nos interesa reflejar el estado real del vehículo.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card" style="margin-bottom:20px">
+          <div class="info-card-icon">🔧</div>
+          <div class="info-card-title">Sistemas que inspeccionamos</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Motor: estado general, consumos, ruidos, emisiones</li>
+            <li>Caja de cambios y transmisión</li>
+            <li>Sistema de frenos: discos, pastillas, líquido, ABS</li>
+            <li>Suspensión y dirección: amortiguadores, rótulas, alineación</li>
+            <li>Sistema eléctrico: batería, alternador, arranque</li>
+            <li>Diagnóstico electrónico OBD: códigos de error activos e históricos</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📱</div>
+          <div class="info-card-title">Tecnología de diagnóstico</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Equipos de diagnóstico OBD profesionales</li>
+            <li>Endoscopio para inspección interior de motor</li>
+            <li>Manómetros de compresión y vacío</li>
+            <li>Herramientas de medición y análisis avanzados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUÁNDO LO NECESITAS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">¿Cuándo lo necesitas?</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Situaciones donde el informe es clave</h2>
+    </div>
+    <div class="cards-3">
+      <div class="info-card reveal">
+        <div class="info-card-icon">🛒</div>
+        <div class="info-card-title">Antes de comprar un vehículo</div>
+        <p class="info-card-desc">Conoce el estado mecánico real antes de formalizar la compra. Evita adquirir un vehículo con problemas graves no declarados.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">⚠️</div>
+        <div class="info-card-title">Averías tras garantía</div>
+        <p class="info-card-desc">Si aparece una avería grave justo al vencer la garantía, un informe pericial puede demostrar que el problema existía con anterioridad.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">🔄</div>
+        <div class="info-card-title">Segunda opinión técnica</div>
+        <p class="info-card-desc">¿No estás seguro del diagnóstico del taller o el presupuesto te parece excesivo? Obtén una valoración independiente y objetiva.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">⚖️</div>
+        <div class="info-card-title">Disputas y reclamaciones</div>
+        <p class="info-card-desc">Para reclamar al vendedor, taller o aseguradora, necesitas documentar técnicamente el origen y el alcance de la avería.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">🚗</div>
+        <div class="info-card-title">Venta del vehículo</div>
+        <p class="info-card-desc">Un informe mecánico aporta credibilidad a tu venta y evita futuras reclamaciones por vicios ocultos si vendes tu coche.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">📋</div>
+        <div class="info-card-title">Proceso judicial</div>
+        <p class="info-card-desc">El informe pericial de averías tiene validez como prueba técnica en procedimientos judiciales y arbitrajes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="lead-section" id="formulario">
+  <div class="lead-section-bg"></div>
+  <div class="container">
+    <div class="lead-inner">
+      <div class="lead-left reveal">
+        <div style="margin-bottom:14px"><span class="badge">Solicitar diagnóstico</span></div>
+        <h2 class="section-title">Conoce el estado real de tu vehículo</h2>
+        <p class="section-subtitle">Con nuestro informe de averías mecánicas tomas decisiones con toda la información.</p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">⚙️</div>
+            <div class="benefit-text"><strong>Diagnóstico con equipos avanzados</strong>OBD, endoscopio, análisis de compresión y más.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📄</div>
+            <div class="benefit-text"><strong>Informe completo con fotos</strong>Descripción técnica de cada fallo con documentación visual.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💶</div>
+            <div class="benefit-text"><strong>Estimación de costes de reparación</strong>Sabes exactamente qué necesita el coche y cuánto cuesta.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🚗</div>
+            <div class="benefit-text"><strong>Servicio Drive-In disponible</strong>Trae tu vehículo a nuestras instalaciones.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lead-form reveal reveal-delay-2">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:4px">Solicita el informe de averías</h3>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:22px">Respondemos hoy mismo en horario laboral</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" class="form-control" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Vehículo (marca, modelo, año)</label>
+            <input type="text" class="form-control" placeholder="Ej: Seat Ibiza 1.2 TSI 2017" />
+          </div>
+          <div class="form-group">
+            <label>Describe la avería o problema *</label>
+            <textarea name="mensaje" class="form-control" placeholder="¿Qué síntomas presenta el vehículo? ¿Desde cuándo? ¿En qué circunstancias aparece el problema?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:17px">Solicitar diagnóstico →</button>
+          <p class="privacy-note">🔒 Tus datos están protegidos. Sin compromiso.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTROS SERVICIOS -->
+<section class="related-services">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:36px">
+      <h2 class="section-title reveal">Otros servicios de peritación</h2>
+    </div>
+    <div class="services-row">
+      <a href="siniestro-total.html" class="service-chip reveal">
+        <div class="service-chip-icon">🚨</div>
+        <div class="service-chip-name">Siniestro Total</div>
+      </a>
+      <a href="antes-de-comprar.html" class="service-chip reveal reveal-delay-1">
+        <div class="service-chip-icon">🔍</div>
+        <div class="service-chip-name">Antes de Comprar</div>
+      </a>
+      <a href="reparacion-mal-realizada.html" class="service-chip reveal reveal-delay-2">
+        <div class="service-chip-icon">🔧</div>
+        <div class="service-chip-name">Reparación Mal Realizada</div>
+      </a>
+      <a href="vicios-ocultos.html" class="service-chip reveal reveal-delay-3">
+        <div class="service-chip-icon">⚠️</div>
+        <div class="service-chip-name">Vicios Ocultos</div>
+      </a>
+      <a href="valoracion-danos.html" class="service-chip reveal reveal-delay-4">
+        <div class="service-chip-icon">📋</div>
+        <div class="service-chip-name">Valoración de Daños</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="app-footer"></div>
+<script src="components.js"></script>
+<script>
+  renderHeader('averias-mecanicas.html');
+  renderFooter();
+  initShared();
+</script>
+</body>
+</html>
