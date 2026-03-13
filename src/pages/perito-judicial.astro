@@ -1,0 +1,382 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Perito Judicial de Automóviles en Alicante | Padilla Peritaciones"
+  description="Perito judicial de automoción en Alicante. Informes periciales técnicos para procedimientos judiciales, vicios ocultos, averías y siniestros. Perito acreditado APCAS. José Ángel Padilla."
+>
+
+<Header activeService="/perito-judicial" />
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="service-hero-inner">
+      <div class="reveal">
+        <div class="breadcrumb">
+          <a href="/">Inicio</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Perito Judicial</span>
+        </div>
+        <div style="margin-bottom:18px"><span class="badge">Perito judicial acreditado APCAS</span></div>
+        <h1 class="service-hero-title">
+          Perito Judicial de<br /><span class="highlight">Automóviles</span><br />en Alicante
+        </h1>
+        <p class="service-hero-sub">Informes periciales técnicos para procedimientos judiciales, reclamaciones por vicios ocultos y conflictos derivados de averías o siniestros. Con posibilidad de ratificación ante el tribunal.</p>
+        <div class="hero-actions">
+          <a href="#formulario" class="btn btn-primary btn-lg">Solicitar informe pericial</a>
+          <a href="tel:633979981" class="btn btn-secondary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            633 97 99 81
+          </a>
+        </div>
+      </div>
+      <div class="mini-form-card reveal reveal-delay-2">
+        <p class="mini-form-title">¿Necesita un informe pericial para su caso?</p>
+        <p class="mini-form-sub">Cuéntenos el procedimiento y valoramos su caso sin compromiso</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead — Perito Judicial" />
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Su nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Tipo de procedimiento</label>
+            <select class="form-control" name="tipo_procedimiento">
+              <option value="">Seleccione una opción</option>
+              <option>Reclamación judicial</option>
+              <option>Reclamación extrajudicial</option>
+              <option>Vicios ocultos en compraventa</option>
+              <option>Avería mecánica</option>
+              <option>Mala reparación en taller</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:4px">Solicitar informe →</button>
+          <p class="privacy-note">🔒 Respuesta en &lt;2h en horario laboral. Sin compromiso.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Prueba técnica independiente</span></div>
+        <h2>¿Qué es un perito judicial de automóviles?</h2>
+        <p>En muchos conflictos relacionados con vehículos es necesario aportar una prueba técnica independiente que permita aclarar el origen de una avería, valorar los daños o determinar si existe un incumplimiento contractual.</p>
+        <p>Un perito judicial de automóviles es un profesional técnico especializado en el análisis de vehículos que emite informes periciales objetivos y fundamentados, con validez como medio de prueba en procedimientos judiciales y extrajudiciales.</p>
+        <div class="highlight-box">
+          <h3>Ratificación en sede judicial</h3>
+          <p>Cuando el procedimiento lo requiere, el perito puede comparecer ante el tribunal para ratificar el informe pericial, explicar las conclusiones técnicas y responder a las preguntas de las partes o del juez.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card">
+          <div class="info-card-icon">⚖️</div>
+          <div class="info-card-title">¿Qué analiza el perito judicial?</div>
+          <ul class="check-list" style="margin-top:14px">
+            <li>Origen técnico de una avería o fallo mecánico</li>
+            <li>Existencia de vicios ocultos en la compraventa</li>
+            <li>Relación causal entre un daño y un siniestro</li>
+            <li>Calidad y corrección de una reparación realizada</li>
+            <li>Valoración económica del vehículo o de los daños</li>
+            <li>Posible manipulación del cuentakilómetros</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOS DE INFORMES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Informes periciales</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Tipos de informes para procedimientos judiciales</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Cada informe se elabora tras inspección técnica del vehículo, análisis de la documentación y estudio detallado de la avería o del daño.</p>
+    </div>
+    <div class="cards-3">
+      <div class="info-card reveal">
+        <div class="info-card-icon">🔍</div>
+        <div class="info-card-title">Vicios ocultos en vehículos</div>
+        <p class="info-card-desc">Informe que acredita la existencia de defectos no declarados en la compraventa, anteriores a la entrega y desconocidos por el comprador.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">⚙️</div>
+        <div class="info-card-title">Averías mecánicas tras la compra</div>
+        <p class="info-card-desc">Análisis técnico que determina si una avería es preexistente, fruto del uso normal o consecuencia de un defecto de fabricación o mantenimiento.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">🔧</div>
+        <div class="info-card-title">Mala reparación en taller</div>
+        <p class="info-card-desc">Informe que acredita si una reparación se realizó incorrectamente, con piezas inadecuadas o sin seguir los procedimientos técnicos establecidos.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">🛡️</div>
+        <div class="info-card-title">Reclamaciones a aseguradoras</div>
+        <p class="info-card-desc">Documentación técnica que respalda reclamaciones cuando la indemnización ofrecida por la aseguradora no se corresponde con los daños reales.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">📊</div>
+        <div class="info-card-title">Valoración de daños</div>
+        <p class="info-card-desc">Cuantificación económica rigurosa de los daños sufridos por un vehículo, aceptada en negociaciones extrajudiciales y procedimientos judiciales.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">🔢</div>
+        <div class="info-card-title">Manipulación de kilometraje</div>
+        <p class="info-card-desc">Informe técnico que detecta y acredita la posible manipulación del cuentakilómetros mediante análisis de datos y documentación del vehículo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Proceso de trabajo</span></div>
+        <h2>Metodología de intervención pericial</h2>
+        <p>Cada informe sigue un proceso técnico riguroso que garantiza la solidez de las conclusiones y su validez como prueba en cualquier procedimiento.</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:16px">
+          {[
+            { n: '01', title: 'Estudio inicial del caso', desc: 'Análisis de la documentación disponible: factura de compra, historial de reparaciones, informes previos y comunicaciones con la parte contraria.' },
+            { n: '02', title: 'Inspección técnica del vehículo', desc: 'Reconocimiento visual y mecánico del vehículo con equipos de diagnosis, medición y documentación fotográfica detallada.' },
+            { n: '03', title: 'Diagnóstico y análisis técnico', desc: 'Determinación de las causas, origen y alcance de la avería o del daño, con apoyo en documentación técnica del fabricante.' },
+            { n: '04', title: 'Elaboración del informe pericial', desc: 'Redacción del informe con descripción de los hechos, metodología aplicada, conclusiones técnicas y valoración económica.' },
+            { n: '05', title: 'Ratificación judicial si se requiere', desc: 'Comparecencia ante el tribunal para ratificar el informe, defender las conclusiones técnicas y responder a las partes.' },
+          ].map(step => (
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div style="min-width:40px;height:40px;border-radius:12px;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:0.04em">{step.n}</div>
+              <div>
+                <div style="font-weight:700;font-size:15px;margin-bottom:4px;color:var(--text)">{step.title}</div>
+                <div style="font-size:14px;color:var(--text-muted);line-height:1.6">{step.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card" style="margin-bottom:20px">
+          <div class="info-card-icon">🧰</div>
+          <div class="info-card-title">Herramientas de diagnóstico</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Equipos de diagnosis multimarca profesionales</li>
+            <li>Documentación técnica oficial del fabricante</li>
+            <li>Análisis visual, mecánico y estructural</li>
+            <li>Bases de datos de valoración de mercado</li>
+            <li>Registro fotográfico completo del estado del vehículo</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📋</div>
+          <div class="info-card-title">El informe incluye</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Identificación y descripción del vehículo</li>
+            <li>Descripción detallada de los hechos</li>
+            <li>Metodología de inspección utilizada</li>
+            <li>Análisis técnico y conclusiones fundamentadas</li>
+            <li>Valoración económica de los daños</li>
+            <li>Firma del perito acreditado APCAS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉN SOLICITA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Clientes habituales</span></div>
+      <h2 class="section-title reveal reveal-delay-1">¿Quién solicita un informe pericial judicial?</h2>
+      <p class="section-subtitle reveal reveal-delay-2">El informe pericial es una herramienta clave tanto para particulares como para profesionales del ámbito jurídico y empresarial.</p>
+    </div>
+    <div class="cards-2">
+      <div class="info-card reveal">
+        <div class="info-card-icon">👤</div>
+        <div class="info-card-title">Particulares</div>
+        <p class="info-card-desc">Compradores de vehículos que descubren vicios ocultos o averías no declaradas, propietarios en conflicto con talleres o aseguradoras, y personas que han sufrido un siniestro mal indemnizado.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">⚖️</div>
+        <div class="info-card-title">Abogados y procuradores</div>
+        <p class="info-card-desc">Profesionales del derecho que necesitan aportar prueba técnica en procedimientos judiciales relacionados con vehículos: compraventa, reparaciones, siniestros o reclamaciones a aseguradoras.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">🏢</div>
+        <div class="info-card-title">Empresas y flotas</div>
+        <p class="info-card-desc">Empresas con vehículos de empresa, renting o flota que necesitan documentar técnicamente un daño, una avería o un conflicto con un proveedor o aseguradora.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">🔩</div>
+        <div class="info-card-title">Talleres y concesionarios</div>
+        <p class="info-card-desc">Profesionales del sector que necesitan un informe técnico independiente para acreditar el estado de un vehículo, justificar una reparación o resolver una disputa con un cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO LOCAL -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Ámbito de actuación</span></div>
+        <h2>Perito judicial de automoción en Alicante y provincia</h2>
+        <p>Realizo intervenciones periciales principalmente en Alicante capital y en toda la provincia, con desplazamiento al lugar donde se encuentre el vehículo.</p>
+        <p>Trabajo habitualmente en los principales municipios de la provincia:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px">
+          {['Alicante', 'San Vicente del Raspeig', 'Elche', 'Orihuela', 'Torrevieja', 'Benidorm', 'Alcoy', 'Dénia', 'Villena', 'Novelda', 'Petrer', 'Crevillent'].map(ciudad => (
+            <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-muted);padding:6px 0">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0"></span>
+              {ciudad}
+            </div>
+          ))}
+        </div>
+        <p style="margin-top:18px;font-size:14px;color:var(--text-muted)">También atiendo casos fuera de la provincia cuando la relevancia del procedimiento lo justifica.</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card">
+          <div class="info-card-icon">🎓</div>
+          <div class="info-card-title">José Ángel Padilla · Perito Judicial de Automoción</div>
+          <p class="info-card-desc" style="margin-bottom:16px">Técnico Superior en Automoción y perito acreditado por APCAS (Asociación de Peritos de Seguros y Comisarios de Averías), con experiencia en la elaboración de informes periciales para procedimientos judiciales y extrajudiciales relacionados con vehículos.</p>
+          <ul class="check-list">
+            <li>Perito acreditado APCAS</li>
+            <li>Técnico Superior en Automoción</li>
+            <li>Experiencia en informes para procedimientos judiciales</li>
+            <li>Colaboración habitual con abogados y despachos jurídicos</li>
+            <li>Ratificación de informes ante el tribunal cuando se requiere</li>
+          </ul>
+          <div style="margin-top:20px">
+            <img src="/img/logo-apcas.png" alt="Perito acreditado APCAS" style="height:32px;width:auto;object-fit:contain;opacity:0.7" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="lead-section" id="formulario">
+  <div class="container">
+    <div class="lead-inner">
+      <div class="lead-left reveal">
+        <div style="margin-bottom:14px"><span class="badge">Contacto sin compromiso</span></div>
+        <h2 class="section-title">¿Necesita un informe pericial para su procedimiento?</h2>
+        <p class="section-subtitle">Cuéntenos el caso y valoramos la viabilidad de la intervención pericial. Respuesta el mismo día laborable.</p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-text"><strong>Respuesta en &lt;2 horas</strong>Contactamos el mismo día laborable.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📋</div>
+            <div class="benefit-text"><strong>Informe con validez judicial</strong>Aceptado como prueba en procedimientos judiciales y extrajudiciales.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">⚖️</div>
+            <div class="benefit-text"><strong>Ratificación en sede judicial</strong>Comparecencia ante el tribunal si el procedimiento lo requiere.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text"><strong>Perito acreditado APCAS</strong>Informes técnicos con el respaldo de una acreditación profesional reconocida.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lead-form reveal reveal-delay-2">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:4px">Solicitar informe pericial judicial</h3>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:22px">Respondemos hoy mismo en horario laboral</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead — Perito Judicial" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" name="nombre" class="form-control" placeholder="Su nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" class="form-control" placeholder="su@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Tipo de caso</label>
+            <select name="tipo_caso" class="form-control">
+              <option value="">Seleccione una opción</option>
+              <option>Vicios ocultos en compraventa</option>
+              <option>Avería mecánica tras la compra</option>
+              <option>Mala reparación en taller</option>
+              <option>Reclamación a aseguradora</option>
+              <option>Valoración de daños para judicial</option>
+              <option>Manipulación de kilometraje</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Describa su caso *</label>
+            <textarea name="mensaje" class="form-control" placeholder="Indique el tipo de procedimiento, el conflicto y la documentación disponible..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:17px">Enviar consulta →</button>
+          <p class="privacy-note">🔒 Sus datos están protegidos. Sin compromiso.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTROS SERVICIOS -->
+<section class="related-services">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:36px">
+      <h2 class="section-title reveal">Otros servicios de peritación</h2>
+    </div>
+    <div class="services-row">
+      <a href="/siniestro-total" class="service-chip reveal">
+        <div class="service-chip-icon">🚨</div>
+        <div class="service-chip-name">Siniestro Total</div>
+      </a>
+      <a href="/antes-de-comprar" class="service-chip reveal reveal-delay-1">
+        <div class="service-chip-icon">🔍</div>
+        <div class="service-chip-name">Antes de Comprar</div>
+      </a>
+      <a href="/reparacion-mal-realizada" class="service-chip reveal reveal-delay-2">
+        <div class="service-chip-icon">🔧</div>
+        <div class="service-chip-name">Reparación Mal Realizada</div>
+      </a>
+      <a href="/vicios-ocultos" class="service-chip reveal reveal-delay-3">
+        <div class="service-chip-icon">⚠️</div>
+        <div class="service-chip-name">Vicios Ocultos</div>
+      </a>
+      <a href="/valoracion-danos" class="service-chip reveal reveal-delay-4">
+        <div class="service-chip-icon">📋</div>
+        <div class="service-chip-name">Valoración de Daños</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<Footer />
+
+</Layout>

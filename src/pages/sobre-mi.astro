@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Sobre mí · José Ángel Padilla | Perito de Coches en Alicante"
+  description="José Ángel Padilla, perito de coches en Alicante acreditado APCAS. Técnico Superior en Automoción con experiencia en informes periciales judiciales y extrajudiciales."
+>
+
+<Header activeService="/sobre-mi" />
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="service-hero-inner">
+      <div class="reveal">
+        <div class="breadcrumb">
+          <a href="/">Inicio</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Sobre mí</span>
+        </div>
+        <div style="margin-bottom:18px"><span class="badge">Perito acreditado APCAS · Alicante</span></div>
+        <h1 class="service-hero-title">
+          José Ángel<br /><span class="highlight">Padilla</span><br />Perito de coches
+        </h1>
+        <p class="service-hero-sub">Perito judicial de automoción acreditado por APCAS y Técnico Superior en Automoción. Más de 15 años elaborando informes periciales para particulares, abogados y empresas en Alicante y provincia.</p>
+        <div class="hero-actions">
+          <a href="/contacto" class="btn btn-primary btn-lg">Solicitar informe</a>
+          <a href="tel:633979981" class="btn btn-secondary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            633 97 99 81
+          </a>
+        </div>
+      </div>
+      <div class="mini-form-card reveal reveal-delay-2" style="text-align:center">
+        <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;font-size:44px;margin:0 auto 20px;box-shadow:0 0 0 8px rgba(34,109,148,0.1)">👨‍💼</div>
+        <p class="mini-form-title">José Ángel Padilla</p>
+        <p class="mini-form-sub" style="margin-bottom:20px">Perito Judicial de Automoción · Alicante</p>
+        <div style="display:flex;flex-direction:column;gap:10px;text-align:left">
+          {[
+            { icon: '🎓', text: 'Técnico Superior en Automoción' },
+            { icon: '⚖️', text: 'Perito acreditado APCAS' },
+            { icon: '🏛️', text: 'Experiencia en procedimientos judiciales' },
+            { icon: '📍', text: 'Alicante y provincia' },
+          ].map(item => (
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-muted)">
+              <span style="font-size:18px">{item.icon}</span>
+              {item.text}
+            </div>
+          ))}
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border-light)">
+          <img src="/img/logo-apcas.png" alt="Perito acreditado APCAS" style="height:34px;width:auto;object-fit:contain;opacity:0.75" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Trayectoria profesional</span></div>
+        <h2>Perito judicial de coches en Alicante</h2>
+        <p>José Ángel es un experto perito judicial de coches que cuenta con años de experiencia en el sector de la automoción y mecánica del automóvil. Es Técnico Superior en Automoción y Perito acreditado.</p>
+        <p>Especializado en procedimientos judiciales, José Ángel Padilla es miembro registrado de la asociación APCAS. Anualmente se encuentra inscrito en las listas de los Peritos de Seguros y Comisarios de Averías para trabajar con Colegios Notariales y Juzgados, según la Ley de la Jurisdicción Voluntaria y la Ley de Enjuiciamiento Civil (Art. 341).</p>
+        <div class="highlight-box">
+          <h3>Entrega del informe en 5-10 días laborables</h3>
+          <p>Confía en nuestro servicio profesional de peritaciones para coches en Alicante y alrededores. Cada informe se elabora con la misma exigencia técnica, independientemente de si va a un juzgado o a una negociación extrajudicial.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card" style="margin-bottom:20px">
+          <div class="info-card-icon">🎓</div>
+          <div class="info-card-title">Formación</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Técnico Superior en Automoción</li>
+            <li>Formación especializada en diagnóstico y mecánica de vehículos</li>
+            <li>Actualización continua en normativa técnica del sector</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🏛️</div>
+          <div class="info-card-title">Acreditación y colegios profesionales</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Perito acreditado por APCAS</li>
+            <li>Inscrito en listas de peritos de seguros</li>
+            <li>Habilitado para ratificación en sede judicial</li>
+          </ul>
+          <div style="margin-top:16px">
+            <img src="/img/logo-apcas.png" alt="APCAS - Asociación de Peritos de Seguros y Comisarios de Averías" style="height:30px;width:auto;object-fit:contain;opacity:0.7" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Especialidades</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Áreas de peritación</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Informes periciales técnicos para los conflictos más habituales relacionados con vehículos.</p>
+    </div>
+    <div class="cards-3">
+      {[
+        { icon: '⚖️', title: 'Perito Judicial', href: '/perito-judicial', desc: 'Informes periciales para procedimientos judiciales con posibilidad de ratificación ante el tribunal.' },
+        { icon: '🚨', title: 'Siniestro Total', href: '/siniestro-total', desc: 'Defensa del valor real del vehículo frente a la valoración de la aseguradora.' },
+        { icon: '🔍', title: 'Antes de Comprar', href: '/antes-de-comprar', desc: 'Informe del estado real del vehículo antes de cerrar la compra.' },
+        { icon: '🔧', title: 'Reparación Mal Realizada', href: '/reparacion-mal-realizada', desc: 'Peritaje que acredita defectos o incorrecciones en una reparación.' },
+        { icon: '⚙️', title: 'Averías Mecánicas', href: '/averias-mecanicas', desc: 'Análisis del origen de una avería para determinar responsabilidades.' },
+        { icon: '⚠️', title: 'Vicios Ocultos', href: '/vicios-ocultos', desc: 'Informe que acredita defectos ocultos en la compraventa de un vehículo.' },
+      ].map((s, i) => (
+        <a href={s.href} class="info-card reveal" style={`text-decoration:none;display:block;${i % 3 !== 0 ? `transition-delay:${(i % 3) * 0.1}s` : ''}`}>
+          <div class="info-card-icon">{s.icon}</div>
+          <div class="info-card-title">{s.title}</div>
+          <p class="info-card-desc">{s.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="reveal">
+        <div style="margin-bottom:14px"><span class="badge">Cómo trabajo</span></div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:16px;letter-spacing:-0.02em">Independencia, objetividad y rigor técnico</h2>
+        <p style="font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:16px">No tengo vinculación con aseguradoras, concesionarios ni talleres. Mi único compromiso es con la precisión técnica y con los intereses de quien me contrata.</p>
+        <p style="font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:24px">Cada informe se elabora siguiendo una metodología rigurosa: inspección física del vehículo, análisis de documentación, consulta de bases de datos técnicas y redacción de conclusiones fundamentadas.</p>
+        <a href="/contacto" class="btn btn-primary">Consultar caso sin compromiso</a>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card">
+          <div class="info-card-title" style="margin-bottom:18px;font-size:18px">Lo que garantizo en cada informe</div>
+          <ul class="check-list">
+            <li>Inspección técnica presencial del vehículo</li>
+            <li>Análisis objetivo e independiente sin conflicto de intereses</li>
+            <li>Metodología documentada y reproducible</li>
+            <li>Conclusiones técnicas claras y fundamentadas</li>
+            <li>Validez para procedimientos judiciales y extrajudiciales</li>
+            <li>Confidencialidad total del caso</li>
+            <li>Disponibilidad para ratificación ante el tribunal</li>
+            <li>Respuesta en menos de 2 horas en horario laboral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Opiniones</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Lo que dicen los clientes</h2>
+    </div>
+    <div class="cards-3">
+      {[
+        { ini: 'CM', nombre: 'Carlos M.', detalle: 'Siniestro total · Alicante', texto: 'La aseguradora me quería pagar muy poco por el siniestro total. Gracias al informe de José Ángel conseguí casi el doble. Totalmente recomendable.' },
+        { ini: 'AS', nombre: 'Ana S.', detalle: 'Avería mecánica · Benidorm', texto: 'Respuesta rapidísima y muy buen trato. El informe fue muy completo y me ayudó en todo el proceso judicial. Sin duda volvería a contratarle.' },
+        { ini: 'RF', nombre: 'Roberto F.', detalle: 'Valoración de daños · Murcia', texto: 'Profesionalidad total. El informe fue determinante en el juicio. José Ángel explicó todo perfectamente y siempre estuvo disponible para resolver dudas.' },
+      ].map((t, i) => (
+        <div class={`info-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+          <div style="color:#f0a500;font-size:18px;margin-bottom:12px">★★★★★</div>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:18px;font-style:italic">"{t.texto}"</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">{t.ini}</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">{t.nombre}</div>
+              <div style="font-size:12px;color:var(--text-muted)">{t.detalle}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="lead-section">
+  <div class="container" style="text-align:center;max-width:640px">
+    <div class="reveal">
+      <div style="margin-bottom:14px"><span class="badge">¿Hablamos?</span></div>
+      <h2 class="section-title">¿Necesitas un perito de confianza en Alicante?</h2>
+      <p class="section-subtitle" style="margin-bottom:32px">Cuéntame tu caso y te digo si puedo ayudarte. Sin compromiso, respuesta el mismo día.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="/contacto" class="btn btn-primary btn-lg">Solicitar informe pericial</a>
+        <a href="tel:633979981" class="btn btn-secondary btn-lg">633 97 99 81</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<Footer />
+
+</Layout>

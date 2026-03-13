@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="¡Gracias por tu consulta! | Padilla Peritaciones"
+  description="Hemos recibido tu consulta. Nos pondremos en contacto contigo en menos de 2 horas."
+  conversion={true}
+>
+
+<style>
+  :root {
+    --primary: #226D94;
+    --primary-dark: #1a5878;
+    --primary-light: #2f82b0;
+    --primary-xlight: #e8f4f9;
+    --bg: #ffffff;
+    --bg-alt: #f4f8fb;
+    --text: #0f1e2e;
+    --text-muted: #5c7080;
+    --border: #dce8f0;
+    --radius: 16px;
+    --radius-lg: 24px;
+    --shadow: 0 6px 30px rgba(34,109,148,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg-alt); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
+
+  .gracias-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 60px 48px;
+    max-width: 540px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .gracias-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  }
+
+  .gracias-icon { font-size: 72px; margin-bottom: 24px; line-height: 1; }
+  .gracias-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .gracias-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .gracias-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 20px rgba(34,109,148,0.3); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); }
+  .btn-secondary:hover { background: var(--primary-xlight); transform: translateY(-2px); }
+
+  .gracias-trust {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .trust-item svg { color: var(--primary); }
+
+  .logo-wrap {
+    margin-bottom: 32px;
+  }
+  .logo-wrap img { height: 40px; width: auto; }
+
+  @media (max-width: 560px) {
+    .gracias-card { padding: 40px 24px; }
+    .gracias-title { font-size: 26px; }
+  }
+</style>
+
+<div class="gracias-card">
+  <div class="logo-wrap">
+    <img src="/img/logo-negro.png" alt="Padilla Peritaciones" />
+  </div>
+  <div class="gracias-icon">✅</div>
+  <h1 class="gracias-title">¡Consulta enviada!</h1>
+  <p class="gracias-text">
+    Hemos recibido tu mensaje correctamente. <strong>José Ángel Padilla</strong> se pondrá en contacto contigo en menos de 2 horas en horario laboral.
+  </p>
+  <div class="gracias-actions">
+    <a href="tel:633979981" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Llamar ahora: 633 97 99 81
+    </a>
+    <a href="/" class="btn btn-secondary">
+      Volver al inicio
+    </a>
+  </div>
+  <div class="gracias-trust">
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Respuesta en &lt; 2 horas
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Perito acreditado APCAS
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Sin compromiso
+    </div>
+  </div>
+</div>
+
+</Layout>

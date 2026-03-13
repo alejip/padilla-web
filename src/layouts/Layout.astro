@@ -1,0 +1,135 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+  conversion?: boolean;
+}
+
+const { title, description = 'Perito de coches en Alicante. Especialista en siniestro total, vicios ocultos, reparaciones mal realizadas y peritaciones previas a la compra.', noindex = false, conversion = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TNR4HVND35');
+  </script>
+
+  <!-- Google Ads base -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-622351073"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-622351073');
+  </script>
+
+  {conversion && (
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
+    </script>
+  )}
+</head>
+<body>
+  <slot />
+
+  <script>
+    // Header scroll behavior
+    const header = document.getElementById('header');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const headerBtn = document.getElementById('headerBtn');
+
+    window.addEventListener('scroll', () => {
+      const s = window.scrollY;
+      if (header) header.classList.toggle('scrolled', s > 50);
+      if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', s > 400);
+      if (headerBtn) headerBtn.style.display = s > 300 ? 'flex' : 'none';
+    });
+
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(r => obs.observe(r));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // Mobile nav
+    function openMobileNav() {
+      document.getElementById('mobileNav').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    window.openMobileNav = openMobileNav;
+    window.closeMobileNav = closeMobileNav;
+
+    // Modal
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      if (modal) modal.classList.remove('open');
+    }
+    window.closeModal = closeModal;
+
+    const modal = document.getElementById('modal');
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // Form submit - uses FormSubmit, redirects to /gracias
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = 'Enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@padillaperitaciones.com', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          window.location.href = '/gracias';
+        } else {
+          alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }
+      } catch {
+        alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
+        btn.innerHTML = original;
+        btn.disabled = false;
+      }
+    }
+    window.handleSubmit = handleSubmit;
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Informe de Estado Antes de Comprar un Coche | Padilla Peritaciones Alicante"
+  description="Informe pericial del estado de un vehículo antes de comprarlo. Evita sorpresas costosas con un peritaje profesional previo a la compra. Perito acreditado en Alicante."
+>
+
+<Header activeService="/antes-de-comprar" />
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="service-hero-inner">
+      <div class="reveal">
+        <div class="breadcrumb">
+          <a href="/">Inicio</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Antes de Comprar</span>
+        </div>
+        <div style="margin-bottom:18px"><span class="badge">Servicio especializado</span></div>
+        <h1 class="service-hero-title">
+          Informe de estado<br /><span class="highlight">antes de comprar</span><br />un coche
+        </h1>
+        <p class="service-hero-sub">Conoce el estado real del vehículo antes de pagar. Evita compras arrepentidas con un informe pericial profesional que te revela todo lo que el vendedor no te cuenta.</p>
+        <div class="hero-actions">
+          <a href="#formulario" class="btn btn-primary btn-lg">Solicitar informe previo</a>
+          <a href="tel:633979981" class="btn btn-secondary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.15-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            633 97 99 81
+          </a>
+        </div>
+      </div>
+      <div class="mini-form-card reveal reveal-delay-2">
+        <p class="mini-form-title">¿Estás pensando en comprar un coche?</p>
+        <p class="mini-form-sub">Solicita el informe de estado antes de decidir</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Marca y modelo del vehículo</label>
+            <input type="text" class="form-control" placeholder="Ej: BMW Serie 3 2019" />
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:4px">Solicitar informe →</button>
+          <p class="privacy-note">🔒 Sin compromiso. Respuesta en &lt;2h en horario laboral.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ ES -->
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div style="margin-bottom:14px"><span class="badge">Por qué es esencial</span></div>
+        <h2>Compra con total seguridad</h2>
+        <p>Al comprar un vehículo de segunda mano, es fundamental conocer su estado real para evitar sorpresas desagradables después de la compra. Un informe de estado previo proporciona información detallada sobre cualquier problema potencial que pueda afectar el valor o la seguridad del vehículo.</p>
+        <p>Los vendedores particulares y los concesionarios no siempre revelan todos los problemas del coche. Un perito independiente inspecciona el vehículo sin ningún interés en la operación de compraventa, garantizando una información objetiva y completa.</p>
+        <div class="highlight-box">
+          <h3>El coste del informe es mínimo frente al ahorro potencial</h3>
+          <p>Un informe pericial previo puede ahorrarte miles de euros en reparaciones no previstas. Con la información real del vehículo, negocias mejor el precio o directamente evitas una compra problemática.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-card" style="margin-bottom:20px">
+          <div class="info-card-icon">🔎</div>
+          <div class="info-card-title">Qué analizamos en el vehículo</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Estado de la carrocería: golpes, reparaciones previas, oxidación</li>
+            <li>Estado mecánico: motor, transmisión, frenos, suspensión</li>
+            <li>Sistema eléctrico y electrónico: OBD, luces, sensores</li>
+            <li>Interior: tapicería, climatización, airbags, cuadro de mandos</li>
+            <li>Histórico del vehículo y coherencia del kilometraje</li>
+            <li>Documentación y situación administrativa</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">✅</div>
+          <div class="info-card-title">Lo que incluye el informe</div>
+          <ul class="check-list" style="margin-top:12px">
+            <li>Descripción detallada de todos los defectos encontrados</li>
+            <li>Estimación del coste de reparación de cada problema</li>
+            <li>Valoración del estado general del vehículo</li>
+            <li>Recomendación fundamentada sobre la compra</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Proceso</span></div>
+      <h2 class="section-title reveal reveal-delay-1">¿Cómo funciona el informe previo a la compra?</h2>
+    </div>
+    <div class="cards-3">
+      <div class="info-card reveal">
+        <div class="info-card-icon">📞</div>
+        <div class="info-card-title">1. Contacta con nosotros</div>
+        <p class="info-card-desc">Cuéntanos los detalles del vehículo que quieres comprar: marca, modelo, año y dónde está. Acordamos la inspección de forma rápida y sencilla.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">🔧</div>
+        <div class="info-card-title">2. Inspección presencial</div>
+        <p class="info-card-desc">José Ángel se desplaza al lugar donde está el coche o puedes traerlo a nuestras instalaciones (servicio Drive-In) para una revisión completa.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">📄</div>
+        <div class="info-card-title">3. Recibes el informe</div>
+        <p class="info-card-desc">En 24-48 horas tienes el informe completo con fotografías, descripción de defectos, valoración del estado y recomendación sobre la operación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOS DE COMPRA -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge reveal"><span class="badge">Ideal para</span></div>
+      <h2 class="section-title reveal reveal-delay-1">¿Para qué tipo de compra es útil?</h2>
+    </div>
+    <div class="cards-3">
+      <div class="info-card reveal">
+        <div class="info-card-icon">🤝</div>
+        <div class="info-card-title">Compra a particular</div>
+        <p class="info-card-desc">El vendedor particular no tiene obligación legal de revelar todos los defectos. Un informe pericial te protege ante posibles engaños o información incompleta.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="info-card-icon">🏢</div>
+        <div class="info-card-title">Compra en concesionario</div>
+        <p class="info-card-desc">Incluso en concesionarios de segunda mano existen vehículos con historial oculto. El informe pericial independiente garantiza una información imparcial.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="info-card-icon">🌍</div>
+        <div class="info-card-title">Vehículo de importación</div>
+        <p class="info-card-desc">Los coches importados pueden tener reparaciones realizadas con estándares distintos o historial de daños difícil de rastrear. El peritaje es especialmente recomendable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="lead-section" id="formulario">
+  <div class="container">
+    <div class="lead-inner">
+      <div class="lead-left reveal">
+        <div style="margin-bottom:14px"><span class="badge">Solicitar informe</span></div>
+        <h2 class="section-title">Compra tu próximo coche sin riesgos</h2>
+        <p class="section-subtitle">Solicita el informe de estado y toma la mejor decisión con toda la información.</p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">🔍</div>
+            <div class="benefit-text"><strong>Inspección exhaustiva</strong>Revisión completa del estado mecánico, carrocería y electrónica.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📊</div>
+            <div class="benefit-text"><strong>Valoración real del vehículo</strong>Conoces el valor real y puedes negociar el precio con datos.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-text"><strong>Informe en 24-48 horas</strong>Rápido para que no pierdas la oportunidad de compra.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🚗</div>
+            <div class="benefit-text"><strong>Servicio Drive-In disponible</strong>Trae el coche a nuestras instalaciones o nos desplazamos.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lead-form reveal reveal-delay-2">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:4px">Solicita el informe previo a la compra</h3>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:22px">Respondemos hoy mismo en horario laboral</p>
+        <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="Nuevo Lead Web" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" class="form-control" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Teléfono *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label>Vehículo a inspeccionar</label>
+            <input type="text" class="form-control" placeholder="Marca, modelo, año y matrícula si la tienes" />
+          </div>
+          <div class="form-group">
+            <label>Cuéntanos tu caso *</label>
+            <textarea name="mensaje" class="form-control" placeholder="¿Dónde está el coche? ¿Tienes alguna duda en concreto sobre el vehículo?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:17px">Solicitar informe →</button>
+          <p class="privacy-note">🔒 Tus datos están protegidos. Sin compromiso.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTROS SERVICIOS -->
+<section class="related-services">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:36px">
+      <h2 class="section-title reveal">Otros servicios de peritación</h2>
+    </div>
+    <div class="services-row">
+      <a href="/siniestro-total" class="service-chip reveal">
+        <div class="service-chip-icon">🚨</div>
+        <div class="service-chip-name">Siniestro Total</div>
+      </a>
+      <a href="/reparacion-mal-realizada" class="service-chip reveal reveal-delay-1">
+        <div class="service-chip-icon">🔧</div>
+        <div class="service-chip-name">Reparación Mal Realizada</div>
+      </a>
+      <a href="/averias-mecanicas" class="service-chip reveal reveal-delay-2">
+        <div class="service-chip-icon">⚙️</div>
+        <div class="service-chip-name">Averías Mecánicas</div>
+      </a>
+      <a href="/vicios-ocultos" class="service-chip reveal reveal-delay-3">
+        <div class="service-chip-icon">⚠️</div>
+        <div class="service-chip-name">Vicios Ocultos</div>
+      </a>
+      <a href="/valoracion-danos" class="service-chip reveal reveal-delay-4">
+        <div class="service-chip-icon">📋</div>
+        <div class="service-chip-name">Valoración de Daños</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<Footer />
+
+</Layout>
