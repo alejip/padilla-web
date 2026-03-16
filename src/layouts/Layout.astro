@@ -121,7 +121,7 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
         await fetch('https://script.google.com/macros/s/AKfycbzQG0oIM4mJTH7QDLcsb5uV69pZ7U1QGD7JQs-7EQjuKqCA1u2CSlGF0eqKla4nKzPy/exec', {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify(data)
         });
         window.location.href = '/gracias';
