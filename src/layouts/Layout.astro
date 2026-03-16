@@ -118,10 +118,10 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
           servicio: form.elements.servicio?.value || '',
           mensaje: form.elements.mensaje?.value || ''
         };
-        const res = await fetch('/api/contact', {
+        const res = await fetch('https://formspree.io/f/xqedlvzw', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
         });
         if (!res.ok) throw new Error();
         window.location.href = '/gracias';
