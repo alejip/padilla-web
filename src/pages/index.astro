@@ -1017,11 +1017,12 @@ import Footer from '../components/Footer.astro';
         servicio: form.elements.servicio?.value || '',
         mensaje: form.elements.mensaje?.value || ''
       };
-      const params = new URLSearchParams(data);
-      await fetch('https://script.google.com/macros/s/AKfycbxqF0cctRKDMB-MJ6S3eL6sFcvYP-qGS42zGVxdW0OQiS2bW6VtP-FvcuyzPtHWPRjN/exec?' + params, {
-        method: 'GET',
-        mode: 'no-cors'
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
+      if (!res.ok) throw new Error();
       window.location.href = '/gracias';
     } catch {
       alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
