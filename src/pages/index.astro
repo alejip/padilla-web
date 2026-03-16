@@ -1002,7 +1002,7 @@ import Footer from '../components/Footer.astro';
   }
   window.toggleFaq = toggleFaq;
 
-  // Form submit
+  // Form submit - envía a Google Sheets vía Apps Script
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -1010,17 +1010,20 @@ import Footer from '../components/Footer.astro';
     const original = btn.innerHTML;
     btn.innerHTML = 'Enviando...'; btn.disabled = true;
     try {
-      const res = await fetch('https://formspree.io/f/xqedlvzw', {
+      const data = {
+        nombre: form.elements.nombre?.value || '',
+        telefono: form.elements.telefono?.value || '',
+        email: form.elements.email?.value || '',
+        servicio: form.elements.servicio?.value || '',
+        mensaje: form.elements.mensaje?.value || ''
+      };
+      await fetch('https://script.google.com/macros/s/AKfycbxiS1-RO0K7MDVq2g8YYduQYduJUvHwUKsK8lLOHVs9HmvcBNabn0HvfKtj9DwUsUDY/exec', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
-      if (res.ok) {
-        window.location.href = '/gracias';
-      } else {
-        alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
-        btn.innerHTML = original; btn.disabled = false;
-      }
+      window.location.href = '/gracias';
     } catch {
       alert('Ha ocurrido un error. Por favor llámanos al 633 97 99 81.');
       btn.innerHTML = original; btn.disabled = false;
