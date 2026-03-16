@@ -111,7 +111,7 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
       btn.innerHTML = 'Enviando...';
       btn.disabled = true;
       try {
-        const res = await fetch('https://formsubmit.co/ajax/info@padillaperitaciones.com', {
+        const res = await fetch('https://formspree.io/f/xqedlvzw', {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }

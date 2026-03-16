@@ -1008,7 +1008,7 @@ import Footer from '../components/Footer.astro';
     const original = btn.innerHTML;
     btn.innerHTML = 'Enviando...'; btn.disabled = true;
     try {
-      const res = await fetch('https://formsubmit.co/ajax/info@padillaperitaciones.com', {
+      const res = await fetch('https://formspree.io/f/xqedlvzw', {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
