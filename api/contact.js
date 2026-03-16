@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const params = new URLSearchParams({ nombre, telefono, email, servicio, mensaje });
 
-  await fetch('https://script.google.com/macros/s/AKfycbxqF0cctRKDMB-MJ6S3eL6sFcvYP-qGS42zGVxdW0OQiS2bW6VtP-FvcuyzPtHWPRjN/exec?' + params);
+  await fetch('https://script.google.com/macros/s/AKfycbx0dm5mnuCTdDUZv81ENFFZrPH6gKJuhNGdGDGLZcZpl-ipnimrTg3vzaKg_7r2VcQv/exec?' + params);
 
   res.status(200).json({ ok: true });
 }
