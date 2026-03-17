@@ -455,6 +455,12 @@ import Footer from '../components/Footer.astro';
             <label>Describe brevemente tu caso</label>
             <input type="text" name="mensaje" class="form-control" placeholder="Ej: Tuve un accidente y la aseguradora..." />
           </div>
+          <div class="form-group" style="margin-bottom:10px">
+            <label style="display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:12.5px;font-weight:400;color:var(--text-muted);line-height:1.5">
+              <input type="checkbox" name="privacy" required style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)" />
+              <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank" style="color:var(--primary)">Política de Privacidad</a> y consiento el tratamiento de mis datos para atender mi consulta. *</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:4px">
             Solicitar presupuesto gratuito →
           </button>
@@ -803,10 +809,16 @@ import Footer from '../components/Footer.astro';
             <label>Describe tu caso *</label>
             <textarea name="mensaje" class="form-control" placeholder="Cuéntanos los detalles de tu situación para darte la mejor respuesta posible..." required></textarea>
           </div>
+          <div class="form-group" style="margin-bottom:10px">
+            <label style="display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:12.5px;font-weight:400;color:var(--text-muted);line-height:1.5">
+              <input type="checkbox" name="privacy" required style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)" />
+              <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank" style="color:var(--primary)">Política de Privacidad</a> y consiento el tratamiento de mis datos para atender mi consulta. *</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:17px;padding:18px">
             Enviar consulta gratuita →
           </button>
-          <p class="privacy-note">🔒 Al enviar aceptas nuestra política de privacidad. No compartimos tus datos.</p>
+          <p class="privacy-note">🔒 Tus datos están protegidos. No compartimos tu información.</p>
         </form>
       </div>
     </div>
@@ -942,7 +954,7 @@ import Footer from '../components/Footer.astro';
     <div class="footer-bottom">
       <p>© 2026 Padilla Peritaciones · José Ángel Padilla · Todos los derechos reservados</p>
       <div class="footer-legal">
-        <a href="#">Política de privacidad</a>
+        <a href="/politica-de-privacidad">Política de privacidad</a>
         <a href="#">Política de cookies</a>
         <a href="#">Aviso legal</a>
       </div>

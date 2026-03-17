@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Política de Cookies | Padilla Peritaciones"
+  description="Política de cookies de Padilla Peritaciones. Información sobre los tipos de cookies utilizadas y cómo gestionarlas."
+>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #FAFAF8; color: #0f1e2e; }
+  .container { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
+  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 900; margin-bottom: 8px; color: #0F2A45; }
+  .subtitle { font-size: 14px; color: #7a8fa3; margin-bottom: 40px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 36px 0 12px; color: #0F2A45; }
+  h3 { font-size: 15px; font-weight: 700; margin: 24px 0 10px; color: #0F2A45; }
+  p { font-size: 15px; line-height: 1.8; color: #3d5166; margin-bottom: 16px; }
+  ul, ol { padding-left: 20px; margin-bottom: 16px; }
+  li { font-size: 15px; line-height: 1.8; color: #3d5166; margin-bottom: 6px; }
+  a { color: #226D94; }
+  .back { display: inline-flex; align-items: center; gap: 8px; color: #226D94; text-decoration: none; font-weight: 600; font-size: 14px; margin-bottom: 40px; }
+  .back:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; }
+  th { background: #0F2A45; color: white; padding: 10px 14px; text-align: left; font-weight: 600; }
+  td { padding: 9px 14px; border-bottom: 1px solid #e8ecf0; color: #3d5166; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f4f6f8; }
+  .table-wrapper { overflow-x: auto; margin-bottom: 24px; border-radius: 8px; border: 1px solid #e0e4e9; }
+  .consent-btn { display: inline-block; margin-top: 8px; padding: 10px 22px; background: #D4911A; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .consent-btn.reject { background: transparent; border: 1.5px solid #0F2A45; color: #0F2A45; margin-left: 10px; }
+</style>
+
+<div class="container">
+  <a href="/" class="back">← Volver al inicio</a>
+  <h1>Política de Cookies</h1>
+  <p class="subtitle">Última actualización: 13 de mayo de 2024</p>
+
+  <h2>¿Qué son las cookies?</h2>
+  <p>Las cookies son archivos que se pueden descargar en un equipo a través de las páginas web. Son herramientas que tienen un papel esencial para la prestación de numerosos servicios de la Sociedad de la Información. Entre otros, permiten a un sitio web almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información obtenida, se pueden utilizar para reconocer al usuario y mejorar el servicio ofrecido.</p>
+
+  <h2>Tipos de cookies</h2>
+
+  <h3>Según la entidad que las gestiona</h3>
+  <ul>
+    <li><strong>Cookies propias:</strong> son aquellas enviadas a tu equipo desde nuestros propios servidores.</li>
+    <li><strong>Cookies de terceros:</strong> son aquellas enviadas a tu equipo desde equipos o dominios que no gestionamos directamente, sino por una entidad externa.</li>
+  </ul>
+
+  <h3>Según el plazo de tiempo que permanecen activas</h3>
+  <ul>
+    <li><strong>Cookies de sesión:</strong> diseñadas para recabar y almacenar datos mientras el usuario accede a una página web. Se extinguen cuando el usuario cierra el navegador.</li>
+    <li><strong>Cookies persistentes:</strong> los datos siguen almacenados en el terminal y pueden ser accedidos y tratados durante un período definido.</li>
+  </ul>
+
+  <h3>Según su finalidad</h3>
+  <ul>
+    <li><strong>Cookies técnicas:</strong> estrictamente necesarias para la navegación y el uso de las funcionalidades del sitio web.</li>
+    <li><strong>Cookies de preferencias o personalización:</strong> permiten recordar información para que el usuario acceda al servicio con determinadas características.</li>
+    <li><strong>Cookies de análisis o medición:</strong> permiten el seguimiento y análisis del comportamiento de los usuarios del sitio web.</li>
+    <li><strong>Cookies de publicidad comportamental:</strong> almacenan información del comportamiento de los usuarios para mostrar publicidad personalizada.</li>
+  </ul>
+
+  <h2>Cookies utilizadas en este sitio web</h2>
+
+  <h3>Cookies técnicas</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GRECAPTCHA</td><td>Google</td><td>Diferencia humanos de bots</td><td>179 días</td></tr>
+        <tr><td>cookie_consent</td><td>Propio</td><td>Almacena el estado de consentimiento del usuario</td><td>1 año</td></tr>
+        <tr><td>Rc:.a</td><td>Google</td><td>Diferencia humanos de bots</td><td>Persistente</td></tr>
+        <tr><td>Rc:.b</td><td>Google</td><td>Diferencia humanos de bots</td><td>Sesión</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cookies analíticas</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>_ga</td><td>Google Analytics</td><td>Distingue a los usuarios para estadísticas de visitas</td><td>2 años</td></tr>
+        <tr><td>_ga_*</td><td>Google Analytics</td><td>Frecuencia y sesiones de visitas (GA4)</td><td>2 años</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cookies de publicidad personalizada</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>NID</td><td>Google Ads</td><td>Identificación para publicidad dirigida y remarketing</td><td>6 meses</td></tr>
+        <tr><td>_gcl_au</td><td>Google Ads</td><td>Seguimiento de conversiones publicitarias</td><td>3 meses</td></tr>
+        <tr><td>_fbp</td><td>Meta (Facebook)</td><td>Seguimiento y publicidad en redes de Meta</td><td>3 meses</td></tr>
+        <tr><td>fr</td><td>Meta (Facebook)</td><td>Mostrar publicidad personalizada</td><td>3 meses</td></tr>
+        <tr><td>tr</td><td>Meta (Facebook)</td><td>Seguimiento de conversiones publicitarias</td><td>Sesión</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Gestión de tu consentimiento</h2>
+  <p>Al acceder a este sitio web por primera vez, verás un panel de configuración de cookies donde podrás aceptar todas las cookies o rechazarlas. Únicamente las cookies técnicas estrictamente necesarias se instalan sin requerir consentimiento, ya que son imprescindibles para el funcionamiento del sitio.</p>
+  <p>Puedes revisar y modificar tu consentimiento en cualquier momento pulsando los botones siguientes:</p>
+  <div>
+    <button class="consent-btn" onclick="cookieAccept()">Aceptar todas las cookies</button>
+    <button class="consent-btn reject" onclick="cookieReject()">Rechazar cookies opcionales</button>
+  </div>
+
+  <h2>Configuración del navegador</h2>
+  <p>De forma adicional, puedes habilitar o deshabilitar las cookies desde la sección de preferencias de tu navegador. A continuación te indicamos cómo hacerlo en los principales navegadores:</p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+    <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+  </ul>
+  <p>Ten en cuenta que la desactivación total de cookies puede impedir el correcto funcionamiento de algunas funcionalidades del sitio web.</p>
+
+  <h2>Más información</h2>
+  <p>Para cualquier consulta sobre el uso de cookies puedes contactar con nosotros en <a href="mailto:info@padillaperitaciones.com">info@padillaperitaciones.com</a> o consultar nuestra <a href="/politica-de-privacidad">Política de Privacidad</a>.</p>
+</div>
+
+</Layout>

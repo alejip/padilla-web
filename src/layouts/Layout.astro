@@ -23,34 +23,37 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35"></script>
+  <!-- gtag stub: las cargas reales se hacen tras consentimiento de cookies -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'G-TNR4HVND35');
-  </script>
-
-  <!-- Google Ads base -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-622351073"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
     gtag('config', 'AW-622351073');
   </script>
 
   {conversion && (
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
       gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
     </script>
   )}
 </head>
 <body>
   <slot />
+
+  <!-- GDPR Cookie Banner -->
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0F2A45;color:white;padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.25)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <p style="flex:1;min-width:260px;font-size:14px;line-height:1.65;margin:0;color:rgba(255,255,255,0.88)">
+        Usamos cookies propias y de terceros (Google Analytics, Google Ads) para analizar el uso del sitio y mostrarte publicidad relevante. Puedes aceptar todas o rechazarlas. Más información en nuestra <a href="/politica-de-cookies" style="color:#D4911A;text-decoration:underline">Política de Cookies</a> y <a href="/politica-de-privacidad" style="color:#D4911A;text-decoration:underline">Política de Privacidad</a>.
+      </p>
+      <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;align-items:center">
+        <button onclick="cookieReject()" style="padding:10px 22px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.35);background:transparent;color:white;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Rechazar</button>
+        <button onclick="cookieAccept()" style="padding:10px 22px;border-radius:8px;border:none;background:#D4911A;color:white;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Aceptar todo</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Header scroll behavior
@@ -101,6 +104,41 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
 
     const modal = document.getElementById('modal');
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // ── COOKIE CONSENT ──────────────────────────────────────────────────────
+    function loadTrackingScripts() {
+      var s1 = document.createElement('script');
+      s1.async = true;
+      s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35';
+      document.head.appendChild(s1);
+      var s2 = document.createElement('script');
+      s2.async = true;
+      s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-622351073';
+      document.head.appendChild(s2);
+    }
+    window.loadTrackingScripts = loadTrackingScripts;
+
+    function cookieAccept() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'none';
+      loadTrackingScripts();
+    }
+    function cookieReject() {
+      localStorage.setItem('cookie_consent', 'rejected');
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'none';
+    }
+    window.cookieAccept = cookieAccept;
+    window.cookieReject = cookieReject;
+
+    var consent = localStorage.getItem('cookie_consent');
+    if (!consent) {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'block';
+    } else if (consent === 'accepted') {
+      loadTrackingScripts();
+    }
 
     // Form submit - envía a Google Sheets vía Apps Script
     async function handleSubmit(e) {
