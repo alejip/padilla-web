@@ -8,7 +8,77 @@ interface Props {
   conversion?: boolean;
 }
 
-const { title, description = 'Perito de coches en Alicante. Especialista en siniestro total, vicios ocultos, reparaciones mal realizadas y peritaciones previas a la compra.', noindex = false, conversion = false } = Astro.props;
+const {
+  title,
+  description = 'Perito de coches en Alicante. Especialista en siniestro total, vicios ocultos, reparaciones mal realizadas y peritaciones previas a la compra.',
+  noindex = false,
+  conversion = false
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = 'https://padillaperitaciones.com/img/logo-negro.png';
+
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://padillaperitaciones.com/#business",
+  "name": "Padilla Peritaciones",
+  "description": "Perito de vehículos en Alicante. Especialista en siniestro total, vicios ocultos, reparaciones mal realizadas y peritaciones previas a la compra.",
+  "url": "https://padillaperitaciones.com",
+  "telephone": "+34633979981",
+  "email": "info@padillaperitaciones.com",
+  "image": ogImage,
+  "logo": ogImage,
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Aspe, 7",
+    "addressLocality": "Alicante",
+    "postalCode": "03012",
+    "addressRegion": "Alicante",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.3558006,
+    "longitude": -0.4836483
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "13",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJQ47yHPg3Yg0RB7WzPpYtLL8",
+  "sameAs": [
+    "https://www.google.com/maps/place/?q=place_id:ChIJQ47yHPg3Yg0RB7WzPpYtLL8"
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Alicante" },
+    { "@type": "City", "name": "Elche" },
+    { "@type": "City", "name": "Benidorm" },
+    { "@type": "City", "name": "Torrevieja" },
+    { "@type": "City", "name": "Murcia" }
+  ],
+  "serviceType": [
+    "Peritación de siniestro total",
+    "Peritaje previo a compra de vehículo",
+    "Peritación de reparación mal realizada",
+    "Peritación de averías mecánicas",
+    "Informe de vicios ocultos",
+    "Valoración de daños en vehículos",
+    "Perito judicial de vehículos"
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -19,6 +89,32 @@ const { title, description = 'Perito de coches en Alicante. Especialista en sini
   <title>{title}</title>
   <meta name="description" content={description} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/logo-negro.png" />
+  <link rel="apple-touch-icon" href="/img/logo-negro.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Padilla Peritaciones" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
