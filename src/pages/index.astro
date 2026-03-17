@@ -22,7 +22,7 @@ import Footer from '../components/Footer.astro';
     --bg-dark: #0d1e2e;
     --text: #0f1e2e;
     --text-muted: #5c7080;
-    --text-light: #8fa0b0;
+    --text-light: #6b7f8e;
     --border: #dce8f0;
     --border-light: #eef4f8;
     --accent2: #f0a500;
@@ -204,7 +204,7 @@ import Footer from '../components/Footer.astro';
   .footer-social { display: flex; gap: 10px; }
   .social-btn { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #8fa0b0; text-decoration: none; font-size: 16px; transition: all 0.2s; }
   .social-btn:hover { background: rgba(34,109,148,0.4); border-color: var(--primary); color: white; }
-  .footer-col h4 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .footer-col h3 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .footer-links a { color: #8fa0b0; text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .footer-links a:hover { color: white; }
@@ -440,8 +440,8 @@ import Footer from '../components/Footer.astro';
             <input type="email" name="email" class="form-control" placeholder="tu@email.com" />
           </div>
           <div class="form-group">
-            <label>Tipo de peritaje</label>
-            <select name="servicio" class="form-control">
+            <label for="servicio-hero">Tipo de peritaje</label>
+            <select id="servicio-hero" name="servicio" class="form-control">
               <option value="">Selecciona el servicio...</option>
               <option>Siniestro total</option>
               <option>Antes de comprar un coche</option>
@@ -817,8 +817,8 @@ import Footer from '../components/Footer.astro';
             <input type="email" name="email" class="form-control" placeholder="tu@email.com" />
           </div>
           <div class="form-group">
-            <label>Tipo de servicio *</label>
-            <select name="servicio" class="form-control" required>
+            <label for="servicio-main">Tipo de servicio *</label>
+            <select id="servicio-main" name="servicio" class="form-control" required>
               <option value="">Selecciona el tipo de peritaje...</option>
               <option>Siniestro total</option>
               <option>Peritaje previo a compra</option>
