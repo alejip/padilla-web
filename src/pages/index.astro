@@ -1096,7 +1096,7 @@ import Footer from '../components/Footer.astro';
   }
   window.toggleFaq = toggleFaq;
 
-  // Form submit - envía a Google Sheets vía Apps Script
+  // Form submit - envía a n8n → Airtable
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -1109,12 +1109,13 @@ import Footer from '../components/Footer.astro';
         telefono: form.elements.telefono?.value || '',
         email: form.elements.email?.value || '',
         servicio: form.elements.servicio?.value || '',
-        mensaje: form.elements.mensaje?.value || ''
+        mensaje: form.elements.mensaje?.value || '',
+        pagina: window.location.pathname
       };
-      const res = await fetch('https://formspree.io/f/xqedlvzw', {
+      const res = await fetch('https://n8n.pulpodigital.es/webhook/padilla-form', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
       if (!res.ok) throw new Error();
       window.location.href = '/gracias';
