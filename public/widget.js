@@ -275,6 +275,43 @@ Cuéntame brevemente qué le ha pasado al vehículo o qué necesitas valorar.`,a
     #pw-summary p { font-size: 13px; color: #64748b; line-height: 1.5; }
     #pw-ref { font-size: 11px; color: #94a3b8; margin-top: 4px; }
 
+    /* Formulario de captura de lead (modo IA) */
+    #pw-lead-form {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid #e2e8f0;
+      flex-shrink: 0;
+    }
+    #pw-lead-form.visible { display: flex; }
+    #pw-lead-form-title { font-size: 13px; color: #475569; margin: 0 0 2px; font-weight: 600; }
+    #pw-lead-form input {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: #0f172a;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #pw-lead-form input:focus { border-color: ${e}; }
+    #pw-lf-submit {
+      background: ${e};
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: filter 0.15s;
+    }
+    #pw-lf-submit:hover { filter: brightness(1.1); }
+    #pw-lf-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
+
     /* Responsive móvil */
     @media (max-width: 440px) {
       #pw-panel {
@@ -284,7 +321,7 @@ Cuéntame brevemente qué le ha pasado al vehículo o qué necesitas valorar.`,a
       }
       #pw-fab { bottom: 16px; right: 16px; }
     }
-  `}function s(e){let{accentColor:t,nombre:n,emoji:r,subtitulo:i,leadWebhookUrl:s}=e,c=document.createElement(`div`);c.id=`perito-widget-host`,document.body.appendChild(c);let l=c.attachShadow({mode:`open`}),u=document.createElement(`style`);u.textContent=o(t),l.appendChild(u);let d=document.createElement(`div`);d.innerHTML=`
+  `}function s(e){let{accentColor:t,nombre:n,emoji:r,subtitulo:i,leadWebhookUrl:s,aiWebhookUrl:c}=e,l=document.createElement(`div`);l.id=`perito-widget-host`,document.body.appendChild(l);let u=l.attachShadow({mode:`open`}),d=document.createElement(`style`);d.textContent=o(t),u.appendChild(d);let f=document.createElement(`div`);f.innerHTML=`
     <button id="pw-fab" aria-label="Abrir chat">
       <div id="pw-badge">1</div>
       <svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
@@ -314,5 +351,13 @@ Cuéntame brevemente qué le ha pasado al vehículo o qué necesitas valorar.`,a
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
+      <div id="pw-lead-form">
+        <p id="pw-lead-form-title">¿Quieres que te contactemos?</p>
+        <input id="pw-lf-name"  type="text"  placeholder="Tu nombre *" />
+        <input id="pw-lf-phone" type="tel"   placeholder="Teléfono *" />
+        <input id="pw-lf-email" type="email" placeholder="Email (opcional)" />
+        <button id="pw-lf-submit">Solicitar contacto</button>
+      </div>
     </div>
-  `,l.appendChild(d);let f=l.getElementById(`pw-fab`),p=l.getElementById(`pw-badge`),m=l.getElementById(`pw-panel`),h=l.getElementById(`pw-messages`),g=l.getElementById(`pw-typing`),_=l.getElementById(`pw-quick-replies`),v=l.getElementById(`pw-input`),y=l.getElementById(`pw-send`),b=l.getElementById(`pw-summary`),x=l.getElementById(`pw-ref`),S=l.getElementById(`pw-input-area`),C=!1,w=!1;function T(e,t){let n=document.createElement(`div`);n.className=`pw-msg ${e}`,n.textContent=t,h.insertBefore(n,g),requestAnimationFrame(()=>{h.scrollTop=h.scrollHeight})}function E(e){_.innerHTML=``,e.forEach(({label:e,value:t})=>{let n=document.createElement(`button`);n.className=`pw-qr`,n.textContent=e,n.onclick=()=>O.processInput(t),_.appendChild(n)})}function D(e){S.style.display=`none`,_.style.display=`none`,b.classList.add(`visible`),x.textContent=`Referencia: ${e}`}let O=a({onEvent:e=>{switch(e.type){case`typing_start`:g.classList.add(`visible`),h.scrollTop=h.scrollHeight;break;case`typing_end`:g.classList.remove(`visible`);break;case`assistant_message`:T(`assistant`,e.text);break;case`user_message`:T(`user`,e.text);break;case`quick_replies`:E(e.replies);break;case`clear_quick_replies`:_.innerHTML=``;break;case`input_enabled`:v.disabled=!1,y.disabled=!1,v.placeholder=e.placeholder,v.focus();break;case`input_disabled`:v.disabled=!0,y.disabled=!0;break;case`complete`:k(e.lead);break}}});async function k(e){if(e.consentimiento!==`Sí`)return;let t=`lead_${Date.now()}_${Math.random().toString(36).slice(2,7)}`,n={nombre:e.name||``,telefono:e.phone||``,email:e.email||``,servicio:`Peritaje de Autos`,mensaje:[e.descripcion?`${e.descripcion}`:``,e.vehiculo?`Vehículo: ${e.vehiculo}`:``,e.motivo?`Motivo: ${e.motivo}`:``].filter(Boolean).join(` | `),pagina:window.location.href};if(s)try{await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(n)})}catch{console.warn(`[PeritajeWidget] Error enviando lead`)}else{let e=`pw_leads_v1`,r=JSON.parse(localStorage.getItem(e)||`[]`);r.push({id:t,payload:n,submittedAt:new Date().toISOString()}),localStorage.setItem(e,JSON.stringify(r))}D(t)}function A(){let e=v.value.trim();!e||v.disabled||(v.value=``,v.style.height=`auto`,O.processInput(e))}y.addEventListener(`click`,A),v.addEventListener(`keydown`,e=>{e.key===`Enter`&&!e.shiftKey&&(e.preventDefault(),A())}),v.addEventListener(`input`,()=>{v.style.height=`auto`,v.style.height=Math.min(v.scrollHeight,90)+`px`}),f.addEventListener(`click`,()=>{C=!C,m.classList.toggle(`visible`,C),f.classList.toggle(`open`,C),p.style.display=`none`,C&&!w&&(w=!0,O.start())})}function c(){let e=document.querySelectorAll(`script[src]`),t=null;e.forEach(e=>{let n=e;(n.dataset.webhook||n.dataset.color||n.dataset.nombre)&&(t=n)}),s({accentColor:t?.dataset?.color||`#1a3a5c`,nombre:t?.dataset?.nombre||`Peritajes`,emoji:t?.dataset?.emoji||`🚗`,subtitulo:t?.dataset?.subtitulo||`Nos pondremos en contacto contigo pronto.`,leadWebhookUrl:t?.dataset?.webhook||null})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,c):c()})();
+  `,u.appendChild(f);let p=u.getElementById(`pw-fab`),m=u.getElementById(`pw-badge`),h=u.getElementById(`pw-panel`),g=u.getElementById(`pw-messages`),_=u.getElementById(`pw-typing`),v=u.getElementById(`pw-quick-replies`),y=u.getElementById(`pw-input`),b=u.getElementById(`pw-send`),x=u.getElementById(`pw-summary`),S=u.getElementById(`pw-ref`),C=u.getElementById(`pw-input-area`),w=u.getElementById(`pw-lead-form`),T=u.getElementById(`pw-lf-name`),E=u.getElementById(`pw-lf-phone`),D=u.getElementById(`pw-lf-email`),O=u.getElementById(`pw-lf-submit`),k=!1,A=!1;function j(e,t){let n=document.createElement(`div`);n.className=`pw-msg ${e}`,n.textContent=t,g.insertBefore(n,_),requestAnimationFrame(()=>{g.scrollTop=g.scrollHeight})}function M(e){v.innerHTML=``,e.forEach(({label:e,value:t})=>{let n=document.createElement(`button`);n.className=`pw-qr`,n.textContent=e,n.onclick=()=>R.processInput(t),v.appendChild(n)})}function N(e){C.style.display=`none`,v.style.display=`none`,x.classList.add(`visible`),S.textContent=`Referencia: ${e}`}let P=[];function F(){C.style.display=`none`,v.style.display=`none`,w.classList.add(`visible`),T.focus()}async function I(e){P.push({role:`user`,content:e}),j(`user`,e),_.classList.add(`visible`),g.scrollTop=g.scrollHeight,y.disabled=!0,b.disabled=!0;try{let t=await(await fetch(c,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({message:e,messages:P,pagina:window.location.href})})).json();_.classList.remove(`visible`),j(`assistant`,t.reply),P.push({role:`assistant`,content:t.reply}),t.captureLead?F():(y.disabled=!1,b.disabled=!1,y.focus())}catch{_.classList.remove(`visible`),j(`assistant`,`Lo siento, ha habido un problema. Inténtalo de nuevo.`),y.disabled=!1,b.disabled=!1}}async function L(){let e=T.value.trim(),t=E.value.trim();if(!e||!t){T.style.borderColor=e?``:`red`,E.style.borderColor=t?``:`red`;return}O.disabled=!0,O.textContent=`Enviando…`;let n=P.map(e=>`${e.role===`user`?`Cliente`:`Bot`}: ${e.content}`).join(`
+`),r={nombre:e,telefono:t,email:D.value.trim()||``,servicio:`Chat IA — Padilla Peritaciones`,mensaje:n,pagina:window.location.href};try{s&&await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(r)})}catch{console.warn(`[PeritajeWidget] Error enviando lead`)}N(`lead_${Date.now()}_${Math.random().toString(36).slice(2,7)}`)}c&&(O.addEventListener(`click`,L),[T,E,D].forEach(e=>{e.addEventListener(`keydown`,e=>{e.key===`Enter`&&L()})}));let R=a({onEvent:e=>{switch(e.type){case`typing_start`:_.classList.add(`visible`),g.scrollTop=g.scrollHeight;break;case`typing_end`:_.classList.remove(`visible`);break;case`assistant_message`:j(`assistant`,e.text);break;case`user_message`:j(`user`,e.text);break;case`quick_replies`:M(e.replies);break;case`clear_quick_replies`:v.innerHTML=``;break;case`input_enabled`:y.disabled=!1,b.disabled=!1,y.placeholder=e.placeholder,y.focus();break;case`input_disabled`:y.disabled=!0,b.disabled=!0;break;case`complete`:z(e.lead);break}}});async function z(e){if(e.consentimiento!==`Sí`)return;let t=`lead_${Date.now()}_${Math.random().toString(36).slice(2,7)}`,n={nombre:e.name||``,telefono:e.phone||``,email:e.email||``,servicio:`Peritaje de Autos`,mensaje:[e.descripcion?`${e.descripcion}`:``,e.vehiculo?`Vehículo: ${e.vehiculo}`:``,e.motivo?`Motivo: ${e.motivo}`:``].filter(Boolean).join(` | `),pagina:window.location.href};if(s)try{await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(n)})}catch{console.warn(`[PeritajeWidget] Error enviando lead`)}else{let e=`pw_leads_v1`,r=JSON.parse(localStorage.getItem(e)||`[]`);r.push({id:t,payload:n,submittedAt:new Date().toISOString()}),localStorage.setItem(e,JSON.stringify(r))}N(t)}function B(){let e=y.value.trim();!e||y.disabled||(y.value=``,y.style.height=`auto`,c?I(e):R.processInput(e))}b.addEventListener(`click`,B),y.addEventListener(`keydown`,e=>{e.key===`Enter`&&!e.shiftKey&&(e.preventDefault(),B())}),y.addEventListener(`input`,()=>{y.style.height=`auto`,y.style.height=Math.min(y.scrollHeight,90)+`px`}),p.addEventListener(`click`,()=>{k=!k,h.classList.toggle(`visible`,k),p.classList.toggle(`open`,k),m.style.display=`none`,k&&!A&&(A=!0,c?(j(`assistant`,`Hola, soy el asistente de ${n}. ¿En qué puedo ayudarte?`),y.disabled=!1,b.disabled=!1,y.placeholder=`Escribe tu consulta…`,y.focus()):R.start())})}function c(){let e=document.querySelectorAll(`script[src]`),t=null;e.forEach(e=>{let n=e;(n.dataset.webhook||n.dataset.color||n.dataset.nombre)&&(t=n)}),s({accentColor:t?.dataset?.color||`#1a3a5c`,nombre:t?.dataset?.nombre||`Peritajes`,emoji:t?.dataset?.emoji||`🚗`,subtitulo:t?.dataset?.subtitulo||`Nos pondremos en contacto contigo pronto.`,leadWebhookUrl:t?.dataset?.webhook||null,aiWebhookUrl:t?.dataset?.aiWebhook||null})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,c):c()})();
