@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página no encontrada | Padilla Peritaciones"
+  description="La página que buscas no existe. Vuelve al inicio o consulta nuestros servicios de peritación de vehículos en Alicante."
+  noindex={true}
+>
+
+<style>
+  :root {
+    --primary: #226D94;
+    --primary-dark: #1a5878;
+    --primary-xlight: #e8f4f9;
+    --text: #0f1e2e;
+    --text-muted: #5c7080;
+    --border: #dce8f0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f8fb;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  .card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    padding: 60px 48px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(34,109,148,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #226D94, #2f82b0);
+  }
+
+  .logo-wrap { margin-bottom: 32px; }
+  .logo-wrap img { height: 40px; width: auto; }
+
+  .code {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -0.04em;
+  }
+
+  h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .actions { display: flex; flex-direction: column; gap: 12px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 20px rgba(34,109,148,0.3); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); }
+  .btn-secondary:hover { background: var(--primary-xlight); transform: translateY(-2px); }
+
+  @media (max-width: 560px) {
+    .card { padding: 40px 24px; }
+    .code { font-size: 64px; }
+    h1 { font-size: 22px; }
+  }
+</style>
+
+<div class="card">
+  <div class="logo-wrap">
+    <img src="/img/logo-negro.png" alt="Padilla Peritaciones" />
+  </div>
+  <div class="code">404</div>
+  <h1>Página no encontrada</h1>
+  <p>La página que buscas no existe o ha sido movida. Puedes volver al inicio o consultar nuestros servicios.</p>
+  <div class="actions">
+    <a href="/" class="btn btn-primary">Volver al inicio</a>
+    <a href="/contacto" class="btn btn-secondary">Contactar</a>
+  </div>
+</div>
+
+</Layout>
