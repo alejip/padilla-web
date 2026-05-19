@@ -131,7 +131,7 @@ const schemaLocalBusiness = {
 
   {conversion && (
     <script>
-      gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
+      window.__padillaConversion = true;
     </script>
   )}
 </head>
@@ -207,11 +207,16 @@ const schemaLocalBusiness = {
     function loadTrackingScripts() {
       var s1 = document.createElement('script');
       s1.async = true;
-      s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35';
+      s1.src = 'https://www.googletagmanager.com/gtag/js?id=AW-622351073';
+      s1.onload = function() {
+        if (window.__padillaConversion) {
+          gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
+        }
+      };
       document.head.appendChild(s1);
       var s2 = document.createElement('script');
       s2.async = true;
-      s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-622351073';
+      s2.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35';
       document.head.appendChild(s2);
     }
     window.loadTrackingScripts = loadTrackingScripts;
