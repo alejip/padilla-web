@@ -346,8 +346,71 @@ import Layout from '../layouts/Layout.astro';
   @keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
   .wa-float svg { width: 28px; height: 28px; fill: white; }
 
+  /* ─── HERO DUAL CTA ─── */
+  .hero-dual-cta {
+    display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .btn-call-hero {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--green); color: white;
+    padding: 15px 28px; border-radius: 50px;
+    font-weight: 800; font-size: 19px; text-decoration: none;
+    box-shadow: 0 6px 24px rgba(22,163,74,0.4);
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-call-hero svg { fill: white; flex-shrink: 0; }
+  .btn-call-hero:hover { background: #15803d; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(22,163,74,0.5); }
+  .btn-form-anchor {
+    display: none;
+    align-items: center; justify-content: center; gap: 8px;
+    background: rgba(255,255,255,0.1); color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 15px 22px; border-radius: 50px;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-form-anchor:hover { background: rgba(255,255,255,0.18); }
+  .hero-urgency {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    margin-bottom: 28px; display: flex; align-items: center; gap: 6px;
+  }
+  .urgency-pulse { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+
+  /* ─── ABOUT BULLETS ─── */
+  .about-bullets { list-style: none; margin: 20px 0 32px; display: flex; flex-direction: column; gap: 16px; }
+  .about-bullets li { display: flex; align-items: center; gap: 14px; font-size: 16px; color: var(--text-muted); line-height: 1.5; }
+  .about-bullets .bi { font-size: 26px; flex-shrink: 0; }
+
+  /* ─── CTA ANCHOR BOX (reemplaza segundo formulario) ─── */
+  .cta-anchor-box {
+    background: white; border-radius: var(--radius-lg); padding: 36px 32px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;
+  }
+  .cta-anchor-box h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; color: var(--text); margin: 0; }
+  .cta-anchor-box > p { font-size: 15px; color: var(--text-muted); margin: 0; }
+  .btn-anchor-to-form {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--accent); color: #0f1e2e;
+    padding: 16px 32px; border-radius: 12px;
+    font-weight: 800; font-size: 16px; text-decoration: none;
+    width: 100%; transition: all 0.25s;
+    box-shadow: 0 6px 24px rgba(240,165,0,0.4);
+  }
+  .btn-anchor-to-form:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .cta-phone-direct {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--text-muted); font-size: 17px; font-weight: 700; text-decoration: none;
+    transition: color 0.2s;
+  }
+  .cta-phone-direct:hover { color: var(--primary); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
+    .btn-form-anchor { display: inline-flex; }
+    .hero-dual-cta { flex-direction: row; }
+    .btn-call-hero { flex: 1; justify-content: center; font-size: 17px; }
+    .btn-form-anchor { flex: 1; }
     .hero-inner { grid-template-columns: 1fr; }
     .hero-form-wrap { max-width: 520px; margin: 0 auto; }
     .problems-grid { grid-template-columns: 1fr 1fr; }
@@ -369,7 +432,7 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- TOP BAR urgencia -->
 <div class="topbar">
-  <strong>⚡ Respuesta garantizada en menos de 2 horas</strong> · Llama ahora: <a href="tel:633979981">633 97 99 81</a>
+  <strong>⚡ Respuesta garantizada en menos de 2 horas</strong> · Llama ahora: <a href="tel:633979981" data-event="click_phone">633 97 99 81</a>
 </div>
 
 <!-- NAV MINIMAL -->
@@ -379,7 +442,7 @@ import Layout from '../layouts/Layout.astro';
       <a href="/" class="nav-logo">
         <img src="/img/logo-negro.png" alt="Padilla Peritaciones" />
       </a>
-      <a href="tel:633979981" class="nav-phone">
+      <a href="tel:633979981" class="nav-phone" data-event="click_phone">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
         <span>633 97 99 81</span>
       </a>
@@ -407,6 +470,21 @@ import Layout from '../layouts/Layout.astro';
           Las aseguradoras tienen su propio perito. <strong style="color:white;">Tú también necesitas el tuyo.</strong>
           Defiendo tus derechos en siniestros totales, vicios ocultos, reparaciones mal realizadas y mucho más.
         </p>
+
+        <div class="hero-dual-cta">
+          <a href="tel:633979981" class="btn-call-hero" data-event="click_phone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            633 97 99 81
+          </a>
+          <a href="#contacto-form" class="btn-form-anchor">
+            Pedir consulta →
+          </a>
+        </div>
+        <p class="hero-urgency">
+          <span class="urgency-pulse"></span>
+          Respuesta en menos de 2h · Primera consulta gratis
+        </p>
+
         <div class="hero-proof">
           <div class="proof-item">
             <span class="proof-icon">⭐</span>
@@ -424,7 +502,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- FORM -->
-      <div class="hero-form-wrap">
+      <div class="hero-form-wrap" id="contacto-form">
         <div class="form-header">
           <p>Primera consulta</p>
           <h3>100% Gratuita y sin compromiso</h3>
@@ -435,7 +513,8 @@ import Layout from '../layouts/Layout.astro';
             Consultas disponibles hoy — respuesta en &lt;2h
           </div>
           <form onsubmit="handleSubmit(event)">
-            <input type="hidden" name="_subject" value="Lead desde Landing Page" />
+                      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="Lead desde Landing Page" />
             <input type="hidden" name="_captcha" value="false" />
             <div class="form-group">
               <label>Tu nombre</label>
@@ -462,7 +541,7 @@ import Layout from '../layouts/Layout.astro';
                 <option>Otro / No sé todavía</option>
               </select>
             </div>
-            <button type="submit" class="btn-submit">
+            <button type="submit" class="btn-submit" data-event="form_submit">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
               Solicitar consulta gratuita
             </button>
@@ -590,14 +669,11 @@ import Layout from '../layouts/Layout.astro';
       <div>
         <div class="section-tag about-tag">Quién soy</div>
         <h2>José Ángel Padilla<br /><span style="color:var(--primary)">Tu perito, no el de la aseguradora</span></h2>
-        <p>Llevo más de 15 años ayudando a particulares y empresas de Alicante a defender sus derechos frente a aseguradoras, vendedores y talleres.</p>
-        <p>Soy independiente: <strong>nadie me contrata para darte menos de lo que mereces</strong>. Mi único objetivo es que obtengas la compensación justa.</p>
-        <div class="creds">
-          <div class="cred"><span class="cred-dot"></span><span>Perito acreditado <strong>APCAS</strong></span></div>
-          <div class="cred"><span class="cred-dot"></span><span>Más de <strong>500 casos</strong> resueltos en Alicante y provincia</span></div>
-          <div class="cred"><span class="cred-dot"></span><span>Informes con <strong>validez judicial</strong></span></div>
-          <div class="cred"><span class="cred-dot"></span><span>Especialista en <strong>negociación con aseguradoras</strong></span></div>
-        </div>
+        <ul class="about-bullets">
+          <li><span class="bi">🏆</span><span>Más de <strong>15 años</strong> en Alicante y provincia</span></li>
+          <li><span class="bi">🔒</span><span><strong>Independiente</strong>: nunca trabajo para la aseguradora</span></li>
+          <li><span class="bi">⚖️</span><span>Informes con <strong>validez judicial</strong> garantizada</span></li>
+        </ul>
         <div class="apcas-logo">
           <img src="/wp-content/uploads/2023/04/LOGO_apcas_horizontal-1024x259-1.png" alt="APCAS - Asociación de Peritos" />
         </div>
@@ -669,46 +745,20 @@ import Layout from '../layouts/Layout.astro';
           <div class="cta-benefit">Perito independiente, siempre de tu lado</div>
         </div>
       </div>
-      <div class="cta-form">
-        <h3>Solicita tu consulta gratuita</h3>
-        <p>Rellena el formulario y te contacto hoy mismo</p>
-        <form onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="Lead desde Landing Page (form 2)" />
-          <input type="hidden" name="_captcha" value="false" />
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="tel" name="telefono" class="form-control" placeholder="6XX XXX XXX" required />
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" placeholder="tu@email.com" />
-          </div>
-          <div class="form-group">
-            <label>¿Cuál es tu caso?</label>
-            <select name="servicio" class="form-control" required>
-              <option value="" disabled selected>Selecciona el tipo de servicio</option>
-              <option>Siniestro total — la aseguradora me paga poco</option>
-              <option>Vicios ocultos — coche comprado con defectos</option>
-              <option>Reparación mal realizada</option>
-              <option>Peritación previa a la compra</option>
-              <option>Daños por accidente</option>
-              <option>Perito judicial</option>
-              <option>Otro / No sé todavía</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Cuéntame algo más (opcional)</label>
-            <textarea name="mensaje" class="form-control" rows="3" placeholder="Describe brevemente tu situación..."></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
-            Quiero mi consulta gratuita
-          </button>
-        </form>
+      <div class="cta-anchor-box">
+        <h3>¿Listo para empezar?</h3>
+        <p>Sin compromiso · Te respondo hoy mismo</p>
+        <a href="#contacto-form" class="btn-anchor-to-form">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          Solicitar consulta gratuita
+        </a>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+          <span style="font-size:12px;color:var(--text-light);font-weight:600">o llámame directamente</span>
+          <a href="tel:633979981" class="cta-phone-direct" data-event="click_phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            633 97 99 81
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -760,7 +810,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>No dejes que la aseguradora decida por ti</h2>
     <p>Consulta gratuita hoy · Respuesta en menos de 2 horas · Sin compromiso</p>
     <div class="strip-actions">
-      <a href="tel:633979981" class="btn-dark">
+      <a href="tel:633979981" class="btn-dark" data-event="click_phone">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
         Llamar ahora: 633 97 99 81
       </a>
@@ -775,7 +825,7 @@ import Layout from '../layouts/Layout.astro';
 <!-- MINI FOOTER -->
 <footer class="mini-footer">
   <div class="container">
-    <p>© 2025 Padilla Peritaciones · <a href="/">padillaperitaciones.com</a> · Alicante · <a href="tel:633979981">633 97 99 81</a></p>
+    <p>© 2025 Padilla Peritaciones · <a href="/">padillaperitaciones.com</a> · Alicante · <a href="tel:633979981" data-event="click_phone">633 97 99 81</a></p>
   </div>
 </footer>
 

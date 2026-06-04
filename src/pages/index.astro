@@ -424,6 +424,7 @@ import Footer from '../components/Footer.astro';
         <p class="form-title">¿Necesitas un peritaje?</p>
         <p class="form-subtitle">Cuéntanos tu caso y te respondemos hoy mismo</p>
         <form id="heroForm" onsubmit="handleSubmit(event)">
+                    <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true" />
           <input type="hidden" name="_subject" value="Nuevo Lead Web" />
           <div class="form-row">
             <div class="form-group">
@@ -803,6 +804,7 @@ import Footer from '../components/Footer.astro';
         <h3 style="font-size:22px;font-weight:700;margin-bottom:6px">Envíanos tu consulta</h3>
         <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px">Te respondemos hoy mismo en horario laboral</p>
         <form id="mainForm" onsubmit="handleSubmit(event)">
+                    <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true" />
           <input type="hidden" name="_subject" value="Nuevo Lead Web" />
           <div class="form-group">
             <label>Nombre *</label>
@@ -1110,9 +1112,10 @@ import Footer from '../components/Footer.astro';
         email: form.elements.email?.value || '',
         servicio: form.elements.servicio?.value || '',
         mensaje: form.elements.mensaje?.value || '',
-        pagina: window.location.pathname
+        pagina: window.location.pathname,
+        website: form.elements.website?.value || ''
       };
-      const res = await fetch('https://n8n.pulpodigital.es/webhook/padilla-form', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
