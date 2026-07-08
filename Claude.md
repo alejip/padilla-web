@@ -22,7 +22,7 @@ Web estática en Astro para perito de coches en Alicante.
 ## Formularios
 - Usan FormSubmit para envío sin backend
 - Al enviar siempre redirigen a /gracias
-- Email destino: info@padillaperitaciones.com
+- Email destino: padillaperitaciones@tallerlaspalmeretas.com
 
 ## Imágenes
 - Logo negro: /wp-content/uploads/2023/04/Logo-negro.png
