@@ -17,7 +17,7 @@ Web estática en Astro para perito de coches en Alicante.
 ## Tracking
 - GA4: G-TNR4HVND35
 - Google Ads base: AW-622351073 (va en TODAS las páginas)
-- Conversión: AW-622351073/GS0ACIyAOtIbEOGl4agc (solo en /gracias)
+- Conversión: AW-622351073/QSOACIyA0tIbEOGl4agC (solo en /gracias)
 
 ## Formularios
 - Usan FormSubmit para envío sin backend
