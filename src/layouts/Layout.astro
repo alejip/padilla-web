@@ -120,19 +120,30 @@ const schemaLocalBusiness = {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- gtag stub: las cargas reales se hacen tras consentimiento de cookies -->
-  <script>
+  <!-- Google tag (gtag.js) - se carga siempre; Consent Mode v2 controla el almacenamiento -->
+  <!-- is:inline: evita que Astro empaquete/reordene este script como módulo -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-622351073"></script>
+  <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag;
+
+    // Consent Mode v2: denegado por defecto hasta que el usuario decida en el banner
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+
     gtag('js', new Date());
     gtag('config', 'G-TNR4HVND35');
     gtag('config', 'AW-622351073');
   </script>
 
   {conversion && (
-    <script>
-      window.__padillaConversion = true;
+    <script is:inline>
+      gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
     </script>
   )}
 </head>
@@ -204,29 +215,21 @@ const schemaLocalBusiness = {
     const modal = document.getElementById('modal');
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-    // ── COOKIE CONSENT ──────────────────────────────────────────────────────
-    function loadTrackingScripts() {
-      var s1 = document.createElement('script');
-      s1.async = true;
-      s1.src = 'https://www.googletagmanager.com/gtag/js?id=AW-622351073';
-      s1.onload = function() {
-        if (window.__padillaConversion) {
-          gtag('event', 'conversion', {'send_to': 'AW-622351073/GS0ACIyAOtIbEOGl4agc'});
-        }
-      };
-      document.head.appendChild(s1);
-      var s2 = document.createElement('script');
-      s2.async = true;
-      s2.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNR4HVND35';
-      document.head.appendChild(s2);
+    // ── COOKIE CONSENT (Google Consent Mode v2) ─────────────────────────────
+    function grantConsent() {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
     }
-    window.loadTrackingScripts = loadTrackingScripts;
 
     function cookieAccept() {
       localStorage.setItem('cookie_consent', 'accepted');
       var banner = document.getElementById('cookie-banner');
       if (banner) banner.style.display = 'none';
-      loadTrackingScripts();
+      grantConsent();
     }
     function cookieReject() {
       localStorage.setItem('cookie_consent', 'rejected');
@@ -241,7 +244,7 @@ const schemaLocalBusiness = {
       var banner = document.getElementById('cookie-banner');
       if (banner) banner.style.display = 'block';
     } else if (consent === 'accepted') {
-      loadTrackingScripts();
+      grantConsent();
     }
 
     // Form submit - envía a n8n → Airtable
