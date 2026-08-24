@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /landing-page
-Disallow: /gracias
-
-Sitemap: https://padillaperitaciones.com/sitemap-index.xml
