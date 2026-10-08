@@ -18,6 +18,8 @@ Web estática en Astro para perito de coches en Alicante.
 - GA4: G-TNR4HVND35
 - Google Ads base: AW-622351073 (va en TODAS las páginas)
 - Conversión: AW-622351073/QSOACIyA0tIbEOGl4agC (solo en /gracias)
+- Clic WhatsApp: AW-622351073/5TouCKvYwJUdEOGl4agC (+ evento GA4 whatsapp_click), en Layout.astro
+- Clic teléfono: AW-622351073/85BtCK7YwJUdEOGl4agC (+ evento GA4 phone_click), en Layout.astro
 
 ## Formularios
 - Usan FormSubmit para envío sin backend

@@ -280,6 +280,33 @@ const schemaLocalBusiness = {
     window.handleSubmit = handleSubmit;
   </script>
 
+  <!-- Conversiones de Google Ads: clics en WhatsApp y teléfono (+ eventos GA4) -->
+  <!-- is:inline: evita que Astro empaquete/reordene este script como módulo -->
+  <script is:inline>
+    (function () {
+      var ADS_ID = 'AW-622351073';
+      var LABEL_WHATSAPP = '5TouCKvYwJUdEOGl4agC';
+      var LABEL_TELEFONO = '85BtCK7YwJUdEOGl4agC';
+
+      function enviar(tipo, label, enlace) {
+        if (typeof gtag !== 'function') return;
+        gtag('event', tipo, { link_url: enlace, page_path: window.location.pathname });
+        gtag('event', 'conversion', { send_to: ADS_ID + '/' + label });
+      }
+
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (/wa\.me|whatsapp\.com/i.test(href)) {
+          enviar('whatsapp_click', LABEL_WHATSAPP, href);
+        } else if (/^tel:/i.test(href)) {
+          enviar('phone_click', LABEL_TELEFONO, href);
+        }
+      }, true);
+    })();
+  </script>
+
   <!-- Widget de captación de leads (desactivado)
   <script
     src="https://padillaperitaciones.com/widget.js"
